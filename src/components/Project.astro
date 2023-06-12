@@ -1,0 +1,28 @@
+---
+import ForkIcon from "./icons/ForkIcon.astro";
+import RepoIcon from "./icons/RepoIcon.astro";
+import StarIcon from "./icons/StarIcon.astro";
+const { post } = Astro.props;
+---
+
+<a href={post.html_url} target="_blank" rel="noreferrer">
+  <div
+    class="flex flex-col max-w-xs p-5 border-2 rounded-md border-zinc-950 bg-zinc-800 h-44"
+  >
+    <div class="flex gap-3">
+      <RepoIcon />
+      <span>{post.name}</span>
+    </div>
+    <p class="line-clamp-3">{post.description}</p>
+    <div class="w-full flex justify-end gap-10 mt-auto">
+      <div class="flex gap-3">
+        <StarIcon />
+        <p>{post.stargazers_count}</p>
+      </div>
+      <div class="flex gap-3">
+        <ForkIcon />
+        <p>{post.forks_count}</p>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,39 @@
+---
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="custom-bg flex flex-col text-white">
+    <slot />
+  </body>
+  <style is:global>
+    @font-face {
+      font-family: "GloriaHallelujah";
+      src: url("/fonts/GloriaHallelujah.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    * {
+      font-family: "GloriaHallelujah";
+    }
+  </style>
+  <style>
+    .custom-bg {
+      background-color: #161616;
+      opacity: 1;
+      background-image: radial-gradient(
+        #000000 1.4500000000000002px,
+        #161616 1.4500000000000002px
+      );
+      background-size: 29px 29px;
+    }
+  </style>
+</html>
