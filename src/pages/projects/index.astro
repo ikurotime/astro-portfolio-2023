@@ -18,11 +18,7 @@ const projects = await fetchProjects({ PER_PAGE: 30 });
       </p>
     </div>
     <div class="grid grid-cols-3 gap-3">
-      {
-        projects &&
-          projects.length > 0 &&
-          projects.map((project: ProjectType) => <Project post={project} />)
-      }
+      {projects.map((project: ProjectType) => <Project post={project} />)}
     </div>
   </MainLayout>
 </PageLayout>
