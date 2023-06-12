@@ -1,4 +1,4 @@
-const { API_KEY, GITHUB_API_KEY } = import.meta.env;
+const { API_KEY } = import.meta.env;
 
 const fetchArticles = async ({ PER_PAGE = 3 }) => {
   return fetch(
