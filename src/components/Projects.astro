@@ -9,6 +9,10 @@ const articles = await fetchProjects({});
 <div>
   <h1 class="my-2">Recent Projects</h1>
   <div class="flex flex-col gap-5 text-white">
-    {articles.map((post: ProjectType) => <Project {post} />)}
+    {
+      articles &&
+        articles.length > 0 &&
+        articles.map((post: ProjectType) => <Project {post} />)
+    }
   </div>
 </div>
