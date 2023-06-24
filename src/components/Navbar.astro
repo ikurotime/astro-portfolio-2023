@@ -1,29 +1,18 @@
----
-import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
-import GithubIcon from "../components/icons/GithubIcon.astro";
----
-
-<nav class="flex w-full h-16 justify-between">
-  <div class="hidden md:flex h-full gap-10">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/projects">Projects</a>
-    <a href="/about">About me</a>
-  </div>
-  <div class="w-auto gap-3 h-full flex justify-evenly items-center">
-    <a
-      href="https://github.com/ikurotime"
-      target="_blank"
-      class="p-1 rounded-md hover:bg-black"
+<nav
+  class='flex w-full h-16 justify-between uppercase font-black max-w-[1100px] m-auto py-14'
+>
+  <a href='/' class='hover:text-orange-400 transition-colors duration-200'
+    >David Huertas</a
+  >
+  <div class='hidden md:flex h-full gap-10'>
+    <a href='/' class='hover:text-green-400 transition-colors duration-200'
+      >Home</a
     >
-      <GithubIcon />
-    </a>
+    <!--     <a href="/blog">Blog</a> -->
     <a
-      href="https://linkedin.com/in/david-huertas-ortiz"
-      target="_blank"
-      class="p-1 rounded-md hover:bg-black"
+      href='/projects'
+      class='hover:text-blue-400 transition-colors duration-200'>Projects</a
     >
-      <LinkedinIcon />
-    </a>
+    <!--     <a href='/about'>About me</a> -->
   </div>
 </nav>

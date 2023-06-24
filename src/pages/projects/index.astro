@@ -1,24 +1,31 @@
 ---
-import PageLayout from "@/layout/PageLayout.astro";
-import MainLayout from "@/layout/MainLayout.astro";
-import type { Project as ProjectType } from "~/types";
-import { fetchProjects } from "@/lib/getData";
-import Project from "@/components/Project.astro";
+import PageLayout from '@/layout/PageLayout.astro'
+import MainLayout from '@/layout/MainLayout.astro'
+import type { Project as ProjectType } from '~/types'
+import { fetchProjects } from '@/lib/getData'
+import Project from '@/components/Project.astro'
 
-const projects = await fetchProjects({ PER_PAGE: 30 });
+const projects: Array<ProjectType> =
+  (await fetchProjects({ PER_PAGE: 30 })) || []
 ---
 
-<PageLayout title="Blog">
+<PageLayout title='Blog'>
   <MainLayout>
-    <div class="flex flex-col gap-8 mb-4">
-      <h1 class="text-5xl">Projects</h1>
-      <p class="text-3xl">
-        These are my projects, some of them have won contests, others were build
-        just for fun
-      </p>
-    </div>
-    <div class="grid grid-cols-3 gap-3">
-      {projects.map((project: ProjectType) => <Project post={project} />)}
+    <div class='flex flex-col m-auto max-w-[1100px] p-5'>
+      <div class='flex flex-col gap-8 mb-4 ]'>
+        <h1 class='text-5xl uppercase font-black'>Projects</h1>
+        <p class='text-2xl text-gray-400'>
+          These are my projects, some of them have won contests, others were
+          build just for fun
+        </p>
+      </div>
+      <div class='grid grid-cols-3 gap-3'>
+        {
+          projects.length > 0
+            ? projects.map((project: ProjectType) => <Project post={project} />)
+            : null
+        }
+      </div>
     </div>
   </MainLayout>
 </PageLayout>

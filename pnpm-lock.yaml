@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/tailwind': ^3.1.2
+  '@fontsource-variable/work-sans': ^5.0.4
   '@tailwindcss/line-clamp': ^0.4.4
   '@tailwindcss/typography': ^0.5.9
   astro: ^2.3.4
@@ -9,6 +10,7 @@ specifiers:
 
 dependencies:
   '@astrojs/tailwind': 3.1.3_cyxi2rbbvaq22julk2hkhgjf7u
+  '@fontsource-variable/work-sans': 5.0.4
   '@tailwindcss/line-clamp': 0.4.4_tailwindcss@3.3.2
   astro: 2.5.7
   tailwindcss: 3.3.2
@@ -565,6 +567,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/work-sans/5.0.4:
+    resolution: {integrity: sha512-d/UdobF+BjjV36EuOhHQoOKJcBAz6Z4PT8Zhps+oNXCavol6k8XfHLCS103Knr9/a/QyKthJU/l4TMWSZChm0w==}
+    dev: false
 
   /@jridgewell/gen-mapping/0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}

@@ -1,39 +1,62 @@
 ---
-const { title } = Astro.props;
+const { title } = Astro.props
+// Supports weights 100-900
+import '@fontsource-variable/work-sans'
 ---
 
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="custom-bg flex flex-col text-white">
+  <body class='custom-bg flex flex-col text-white'>
     <slot />
   </body>
-  <style is:global>
-    @font-face {
-      font-family: "GloriaHallelujah";
-      src: url("/fonts/GloriaHallelujah.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-    * {
-      font-family: "GloriaHallelujah";
-    }
-  </style>
+
   <style>
     .custom-bg {
-      background-color: #161616;
+      background-color: #202023;
       opacity: 1;
-      background-image: radial-gradient(
-        #000000 1.4500000000000002px,
-        #161616 1.4500000000000002px
-      );
-      background-size: 29px 29px;
+    }
+
+    body {
+      font-family: 'Work Sans Variable', sans-serif;
+      color: #ffffffeb;
+    }
+  </style>
+  <style is:global>
+    :root {
+      --white: #ffffffeb;
+      --black: #000000;
+      --red: #ef4444;
+      --blue-pastel: #1da1f2;
+      --linkedin-blue: #0077b5;
+    }
+    .main-image {
+      box-shadow: 8px 8px 0px var(--white);
+    }
+    .social {
+      transition: all 0.25s ease-in-out;
+      stroke: var(--white);
+    }
+    .social:hover {
+      transform: translate3d(3px, -3px, 0);
+      box-shadow: -3px 3px 0px;
+    }
+    #youtube-icon:hover {
+      stroke: var(--red);
+      box-shadow: -3px 3px 0px var(--red);
+    }
+    #twitter-icon:hover {
+      stroke: var(--blue-pastel);
+      box-shadow: -3px 3px 0px var(--blue-pastel);
+    }
+    #linkedin-icon:hover {
+      stroke: var(--linkedin-blue);
+      box-shadow: -3px 3px 0px var(--linkedin-blue);
     }
   </style>
 </html>
