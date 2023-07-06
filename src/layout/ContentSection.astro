@@ -1,11 +1,43 @@
 ---
-import Posts from '../components/Posts.astro'
-import Projects from '../components/Projects.astro'
+import NewProjects from "@/components/NewProjects.astro";
+const projects = [
+  {
+    title: "GeoWeather",
+    description:
+      "A weather app that displays the current weather in a given location. It can be used to display the weather in a given location. Winner of Midudev's June Hackathon",
+    image: "https://2022.davidhuertas.dev/assets/GeoWeather.d9c74363.jpg",
+    github: "https://github.com/ikurotime/GeoWeather",
+  },
+  {
+    title: "TechTalks",
+    description:
+      "A discord-like app that can create and share chat servers with pre-setted channels. Built for Midudev's July Hackathon.",
+    image: "https://2022.davidhuertas.dev/assets/TechTalks.57b64a72.jpg",
+    github: "https://github.com/ikurotime/Svelte-Twilio-chat",
+  },
+  {
+    title: "RecetasYa!",
+    description:
+      "Food Recipes app built on live with a modern technology stack. Authentication,CRUD and ORM.",
+    image:
+      "https://i.postimg.cc/brtSMzWf/Screenshot-2023-07-06-at-13-38-39.png",
+    github: "https://2022.davidhuertas.dev/assets/TechTalks.57b64a72.jpg",
+  },
+];
 ---
 
-<div
-  class='flex flex-col sm:flex-col gap-3 sm:gap-12 max-w-[1110px] m-auto py-8'
->
-  <Projects />
-  <!--   <Posts /> -->
+<div class="flex gap-3 max-w-[1110px] m-auto py-8 flex-shrink">
+  <div class="grid grid-cols-2 gap-x-20 gap-y-5">
+    {
+      projects.map((n) => (
+        <a href={n.github} target="_blank">
+          <NewProjects
+            title={n.title}
+            description={n.description}
+            image={n.image}
+          />
+        </a>
+      ))
+    }
+  </div>
 </div>
