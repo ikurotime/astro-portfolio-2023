@@ -11,19 +11,31 @@ import { Resend } from 'resend'
 
 if (Astro.request.method === 'POST') {
   try {
-    const resend = new Resend('re_bZLH5vqf_2ACVa434vXyMRyw68my9QAiu')
+    const resend = new Resend(`${import.meta.env.RESEND_API_KEY}`)
 
-    resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'davidhuertasortiz@gmail.com',
-      subject: 'Hello World',
-      html: '<p>Congrats on sending your <strong>second email</strong>!</p>'
-    })
     const data = await Astro.request.formData()
     const name = data.get('name')
     const email = data.get('email')
-    const password = data.get('password')
+    const current_website = data.get('current_website')
+    const budget = data.get('budget')
+    const project_description = data.get('project_description')
+    const ideal_date = data.get('ideal_date')
+    const source = data.get('source')
+
+    const emailData = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'davidhuertasortiz@gmail.com',
+      subject: `Propuesta de ${email}`,
+      html: `<p>Nombre: ${name}</p><br/>
+      <p>Email: ${email}</p><br/>
+      <p>Web actual: ${current_website ?? 'No tiene'}</p><br/>
+      <p>Presupuesto: ${budget}</p><br/>
+      <p>Descripcion del proyecto: ${project_description}</p><br/>
+      <p>Fecha ideal: ${ideal_date}</p>
+      <p>Me ha encontrado por: ${source}</p>`
+    })
     console.log(data)
+    console.log(emailData)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)
@@ -57,6 +69,7 @@ if (Astro.request.method === 'POST') {
               class='w-full px-3 py-2 rounded-lg bg-[#252422] text-white text-xl'
               type='text'
               name='name'
+              required
               id='name'
             />
           </div>
@@ -66,6 +79,7 @@ if (Astro.request.method === 'POST') {
               class='w-full px-3 py-2 rounded-lg bg-[#252422] text-white text-xl'
               type='text'
               name='email'
+              required
               id='email'
             />
           </div>
@@ -88,21 +102,23 @@ if (Astro.request.method === 'POST') {
               class='w-full px-3 py-2 rounded-lg bg-[#252422] text-white text-xl'
               name='budget'
               id='budget'
+              required
             >
               <option value=''>Selecciona un valor</option>
-              <option value='less_than_1k'>&lt; 500€</option>
-              <option value='between_05k_1k'>&gt; 500€ - &lt; 1000€</option>
-              <option value='more_than_1k'>&lt; 1000€</option>
+              <option value='< 500€'>&lt; 500€</option>
+              <option value='> 500€ < 1000€'> 500€ &gt; - &lt; 1000€</option>
+              <option value='> 1000€'>&lt; 1000€</option>
             </select>
           </div>
           <div>
-            <label class='text-2xl font-bold' for='budget'
+            <label class='text-2xl font-bold' for='services'
               >¿Qué servicios estás buscando?</label
             >
             <select
               class='w-full px-3 py-2 rounded-lg bg-[#252422] text-white text-xl'
-              name='budget'
-              id='budget'
+              name='services'
+              required
+              id='services'
             >
               <option value=''>Selecciona un valor</option>
               <option value='design'>Diseño</option>
@@ -115,14 +131,15 @@ if (Astro.request.method === 'POST') {
             </select>
           </div>
           <div>
-            <label class='text-2xl font-bold' for='project_desctiption'
+            <label class='text-2xl font-bold' for='project_description'
               >Háblame sobre el proyecto</label
             >
             <textarea
               class='w-full p-2 rounded-lg bg-[#252422] text-white text-xl'
               rows='5'
-              name='project_desctiption'
-              id='project_desctiption'></textarea>
+              name='project_description'
+              required
+              id='project_description'></textarea>
           </div>
           <div>
             <label class='text-2xl font-bold' for='ideal_date'>Email</label>
@@ -134,22 +151,21 @@ if (Astro.request.method === 'POST') {
             />
           </div>
           <div>
-            <label class='text-2xl font-bold' for='current_website'
+            <label class='text-2xl font-bold' for='source'
               >¿Cómo me has encontrado?</label
             >
             <input
               class='w-full px-3 py-2 rounded-lg bg-[#252422] text-white text-xl'
               type='text'
-              name='current_website'
-              id='current_website'
+              name='source'
+              id='source'
             />
           </div>
-          <a
-            href='/contacto'
+          <button
             class='flex justify-center gap-8 w-full h-16 bg-[#EB5E28] rounded-lg text-white text-center leading-[64px] text-2xl'
           >
             Empezar
-          </a>
+          </button>
         </form>
       </div>
       <div
