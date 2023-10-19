@@ -1,14 +1,19 @@
 ---
 import MainLayout from '@/layout/MainLayout.astro'
-import ContentSection from '@/layout/ContentSection.astro'
-import HeroSection from '@/components/HeroSection.astro'
+import TitleSection from '@/sections/TitleSection.astro'
+import WhySection from '@/sections/WhySection.astro'
+import WorkSection from '@/sections/WorkSection.astro'
 import PageLayout from '@/layout/PageLayout.astro'
-import Footer from '@/components/Footer.astro'
+import ProcessSection from '@/sections/ProcessSection.astro'
+import FAQSection from '@/sections/FAQSection.astro'
 ---
 
 <PageLayout title='David Huertas - Developer & Content creator'>
   <MainLayout>
-    <HeroSection />
-    <ContentSection />
+    <TitleSection />
+    <!-- <WhySection /> -->
+    <!-- <WorkSection /> -->
+    <ProcessSection />
+    <FAQSection />
   </MainLayout>
 </PageLayout>

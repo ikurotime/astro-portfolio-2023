@@ -1,22 +1,22 @@
 ---
-import CommentIcon from "./icons/CommentIcon.astro";
-import PostIcon from "./icons/PostIcon.astro";
-const { post } = Astro.props;
+import CommentIcon from './icons/CommentIcon.astro'
+import PostIcon from './icons/PostIcon.astro'
+const { post } = Astro.props
 ---
 
-<a href={"/blog/" + post.slug}>
+<a href={'/blog/' + post.slug}>
   <div
-    class="flex flex-col p-5 border-2 rounded-md border-zinc-950 bg-zinc-800 max-w-md h-44"
+    class='flex flex-col p-5 border-2 rounded-md border-zinc-950 bg-zinc-800 max-w-md h-44'
   >
     <div>
-      <div class="flex gap-3">
+      <div class='flex gap-3'>
         <PostIcon />
-        <span class="line-clamp-2">{post.title}</span>
+        <span class='line-clamp-2'>{post.title}</span>
       </div>
-      <p class="line-clamp-2">{post.description}</p>
+      <p class='line-clamp-2'>{post.description}</p>
     </div>
-    <div class="flex justify-between gap-3 mt-auto">
-      <div class="flex gap-1">
+    <div class='flex justify-between gap-3 mt-auto'>
+      <div class='flex gap-1'>
         <CommentIcon />
         <span>{post.comments_count}</span>
       </div>

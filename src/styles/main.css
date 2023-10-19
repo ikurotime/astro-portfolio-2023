@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'TTCommonsBold';
+    src: url('/fonts/TTCommonsBold') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTCommonsMedium';
+    src: url('/fonts/TTCommonsMedium') format('ttf');
+    font-weight: medium;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTCommonsRegular';
+    src: url('/fonts/TTCommonsRegular') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+* {
+  font-family: 'TT Commons Regular', sans-serif;
+}
+
+:root {
+  --white: #ffffffeb;
+  --black: #000000;
+  --red: #ef4444;
+  --blue-pastel: #1da1f2;
+  --linkedin-blue: #0077b5;
+}
+.main-image {
+  box-shadow: 8px 8px 0px var(--white);
+}
+.social {
+  transition: all 0.25s ease-in-out;
+  stroke: var(--white);
+}
+.social:hover {
+  transform: translate3d(3px, -3px, 0);
+  box-shadow: -3px 3px 0px;
+}
+#youtube-icon:hover {
+  stroke: var(--red);
+  box-shadow: -3px 3px 0px var(--red);
+}
+#twitter-icon:hover {
+  stroke: var(--blue-pastel);
+  box-shadow: -3px 3px 0px var(--blue-pastel);
+}
+#linkedin-icon:hover {
+  stroke: var(--linkedin-blue);
+  box-shadow: -3px 3px 0px var(--linkedin-blue);
+}
+.project-shadow {
+  transition: all 0.25s ease-in-out;
+}
+.project-shadow:hover {
+  transform: translate3d(3px, -3px, 0);
+  box-shadow: -3px 3px 0px;
+}

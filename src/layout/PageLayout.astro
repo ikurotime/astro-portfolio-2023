@@ -1,36 +1,78 @@
 ---
 const { title } = Astro.props
-// Supports weights 100-900
-import '@fontsource-variable/work-sans'
 ---
 
-<html lang='en'>
+<html lang='es'>
   <head>
     <meta charset='utf-8' />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3630954887749456"
-     crossorigin="anonymous"></script>
+    <script
+      async
+      src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3630954887749456'
+      crossorigin='anonymous'></script>
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class='custom-bg flex flex-col text-white'>
+  <body class='custom-bg flex flex-col text-white relative'>
     <slot />
-    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"e174ed6f0f64f8a5c9719955c7738411"})});</script>
   </body>
 
   <style>
     .custom-bg {
-      background-color: #202023;
+      background-color: #fffcf2;
       opacity: 1;
     }
-
+    * {
+    }
     body {
-      font-family: 'Work Sans Variable', sans-serif;
+      font-family: 'TTCommons';
       color: #ffffffeb;
     }
   </style>
   <style is:global>
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsBlack.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsExtraBold.otf') format('opentype');
+      font-weight: bolder;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsBold.otf') format('opentype');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsDemiBold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsMedium.otf') format('opentype');
+      font-weight: medium;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TTCommons';
+      src: url('/fonts/TTCommonsRegular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
       --white: #ffffffeb;
       --black: #000000;
@@ -69,5 +111,4 @@ import '@fontsource-variable/work-sans'
       box-shadow: -3px 3px 0px;
     }
   </style>
-  
 </html>
