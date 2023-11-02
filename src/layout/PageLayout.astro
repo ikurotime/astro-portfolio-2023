@@ -12,6 +12,20 @@ const { title } = Astro.props
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
+    <script>
+      function loadScript(a) {
+        var b = document.getElementsByTagName('head')[0],
+          c = document.createElement('script')
+        ;(c.type = 'text/javascript'),
+          (c.src = 'https://tracker.metricool.com/resources/be.js'),
+          (c.onreadystatechange = a),
+          (c.onload = a),
+          b.appendChild(c)
+      }
+      loadScript(function () {
+        beTracker.t({ hash: 'e174ed6f0f64f8a5c9719955c7738411' })
+      })
+    </script>
     <title>{title}</title>
   </head>
   <body class='custom-bg flex flex-col text-white relative'>
