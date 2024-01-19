@@ -10,6 +10,7 @@ const { title } = Astro.props
       src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3630954887749456'
       crossorigin='anonymous'></script>
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='stylesheet' href='styles/main.css' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <script>
@@ -27,8 +28,50 @@ const { title } = Astro.props
       })
     </script>
     <title>{title}</title>
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsBlack.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsBold.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsDemiBold.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsExtraBold.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsMedium.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/TTCommonsRegular.otf'
+      as='font'
+      type='font/otf'
+      crossorigin
+    />
   </head>
-  <body class='custom-bg flex flex-col text-white relative'>
+  <body class='custom-bg flex flex-col text-white relative font-ttcommons'>
     <slot />
   </body>
 
@@ -37,56 +80,8 @@ const { title } = Astro.props
       background-color: #fffcf2;
       opacity: 1;
     }
-    * {
-    }
-    body {
-      font-family: 'TTCommons';
-      color: #ffffffeb;
-    }
   </style>
   <style is:global>
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsBlack.otf') format('opentype');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsExtraBold.otf') format('opentype');
-      font-weight: bolder;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsBold.otf') format('opentype');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsDemiBold.otf') format('opentype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsMedium.otf') format('opentype');
-      font-weight: medium;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TTCommons';
-      src: url('/fonts/TTCommonsRegular.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
     :root {
       --white: #ffffffeb;
       --black: #000000;

@@ -4,30 +4,47 @@
 
 @layer base {
   @font-face {
-    font-family: 'TTCommonsBold';
-    src: url('/fonts/TTCommonsBold') format('ttf');
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsBlack.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsExtraBold.otf') format('opentype');
+    font-weight: bolder;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsBold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: 'TTCommonsMedium';
-    src: url('/fonts/TTCommonsMedium') format('ttf');
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsDemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsMedium.otf') format('opentype');
     font-weight: medium;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: 'TTCommonsRegular';
-    src: url('/fonts/TTCommonsRegular') format('ttf');
+    font-family: 'TTCommons';
+    src: url('/fonts/TTCommonsRegular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
-}
-
-* {
-  font-family: 'TT Commons Regular', sans-serif;
 }
 
 :root {
