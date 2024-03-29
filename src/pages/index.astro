@@ -1,0 +1,54 @@
+---
+import blogpost from '../blogpost'
+import Card from '../layouts/Card.astro'
+import MainLayout from '../layouts/MainLayout.astro'
+import projects from '../projects'
+---
+
+<MainLayout title='David Huertas'>
+  <div class='max-w-1/2 flex-1'>
+    <span class='text-zinc-700'><strong>Projects 🧱</strong></span>
+    <div class='py-4'>
+      <ul class='gap-4 flex flex-col'>
+        {
+          projects.map((project) => (
+            <li class='flex w-full flex-col'>
+              <a href={project.href}>
+                <Card
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <!--       <div class='max-w-1/2 flex-1 py-4'>
+        <span class='text-zinc-700'><strong># Skills 🛠</strong></span>
+      </div> -->
+  <div class='max-w-1/2 flex-1'>
+    <span class='text-zinc-700'
+      ><strong>Blog 📒</strong>
+      <div class='py-4'>
+        <ul class='gap-4 flex flex-col'>
+          {
+            blogpost.map((post) => (
+              <li class='flex w-full flex-col'>
+                <a href={post.href}>
+                  <Card
+                    title={post.title}
+                    description={post.description}
+                    tags={post.tags}
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </span>
+  </div>
+</MainLayout>
