@@ -13,7 +13,7 @@ import projects from '../projects'
         {
           projects.map((project) => (
             <li class='flex w-full flex-col'>
-              <a href={project.href}>
+              <a href={project.href} rel='noreferrer' target='_blank'>
                 <Card
                   title={project.title}
                   description={project.description}
