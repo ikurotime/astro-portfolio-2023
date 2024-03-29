@@ -40,7 +40,7 @@ Although we (not only the company but us, developers as a community) have used C
 
 Create React App was a new way to easily create a React project to learn how React works that was released 6 years ago and it has been updated since then. Currently there are more options that solves React problems in a much more modern way that wasn’t possible at the time.
 
-![Docs of Create React app installation](/public/01/cra%20install.png)
+![Docs of Create React app installation](/01/cra%20install.png)
 
 Yes, CRA is “officially“ maintained by Facebook, but due to its legacy, it can't be supported the same way as its alternatives.
 
@@ -52,21 +52,21 @@ and that leads me to one of the stronger points.
 
 Some of you may know the React docs page. If you look around the website, you may notice it looks a bit old and not updated with today standards of React, as most of the examples are still written with Class Components and the hooks documentation hasn’t changed since a couple of years ago.
 
-![Docs of Create React app installation](/public/01/react%20docs.png)
+![Docs of Create React app installation](/01/react%20docs.png)
 
 The React team is aware of this and they are working in a new docs website, written with hooks examples, and dedicating more content to detailing how React is used currently.
 
-![Docs of Create React app installation](/public/01/newreactdocs.png)
+![Docs of Create React app installation](/01/newreactdocs.png)
 
 In this new website, the idea of CRA being a learning tool is reinforced as we can see in the
 
 “Start a new React project“ section, and even recommends us Vite or Parcel as alternatives.
 
-![Docs of Create React app installation](/public/01/gettingstarted.png)
+![Docs of Create React app installation](/01/gettingstarted.png)
 
 If we scroll down a little, we’ll reach the “Building with a full-featured framework“ section where the React teams recommends us to use Next.js instead if we are going to develop a full production application.
 
-![Docs of Create React app installation](/public/01/buildingfullfeatures.png)
+![Docs of Create React app installation](/01/buildingfullfeatures.png)
 
 ## CRA tries to make everything work
 
