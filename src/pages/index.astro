@@ -1,8 +1,8 @@
 ---
-import blogpost from '../blogpost'
 import Card from '../layouts/Card.astro'
 import MainLayout from '../layouts/MainLayout.astro'
 import projects from '../projects'
+const posts = await Astro.glob('../pages/blog/*.md')
 ---
 
 <MainLayout title='David Huertas'>
@@ -35,17 +35,19 @@ import projects from '../projects'
       <div class='py-4'>
         <ul class='gap-4 flex flex-col'>
           {
-            blogpost.map((post) => (
-              <li class='flex w-full flex-col'>
-                <a href={post.href}>
-                  <Card
-                    title={post.title}
-                    description={post.description}
-                    tags={post.tags}
-                  />
-                </a>
-              </li>
-            ))
+            posts
+              .filter((post) => post.frontmatter.draft === false)
+              .map((post) => (
+                <li class='flex w-full flex-col'>
+                  <a href={post.url}>
+                    <Card
+                      title={post.frontmatter.title}
+                      description={post.frontmatter.description}
+                      tags={post.frontmatter.tags}
+                    />
+                  </a>
+                </li>
+              ))
           }
         </ul>
       </div>
