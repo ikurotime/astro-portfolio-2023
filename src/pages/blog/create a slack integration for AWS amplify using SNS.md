@@ -1,5 +1,5 @@
 ---
-title: 'You shouldn’t use Create React App'
+title: 'Create a Slack integration for AWS Amplify using SNS'
 pubDate: 2024-03-29
 description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
 # author: 'Kuro'
@@ -7,7 +7,7 @@ image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
 tags: ['react', 'create-react-app']
-draft: false
+draft: true
 layout: ../../layouts/PostLayout.astro
 ---
 
