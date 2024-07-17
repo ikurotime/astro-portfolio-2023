@@ -12,78 +12,78 @@ draft: false
 layout: ../../../layouts/PostLayout.astro
 ---
 
-Around September, 2022, I was working in a company that was starting to use React in their projects. I was a simple junior of the frontend team and we had to make a decision about the tools we were going to use in our projects.
-I, as the junior, witnessed the conversation between the senior developers and the project manager, and I was surprised by the decision they were about to make.
+Alrededor de septiembre de 2022, trabajaba en una empresa que empezaba a utilizar React en sus proyectos. Yo era un simple júnior del equipo de frontend y teníamos que tomar una decisión sobre las herramientas que íbamos a utilizar en nuestros proyectos.
+Yo, como júnior, presencié la conversación entre los desarrolladores sénior y el jefe de proyecto, y me sorprendió la decisión que estaban a punto de tomar.
 
-They were going to use Create React App.
+Iban a utilizar Create React App.
 
-I was surprised because I had been reading a lot about the new tools that were being released and I knew that Create React App was not the best option for a production project.
-Not only that, but the team itself was not aware of alternatives like Vite or Next.js and didn't even use it recently or in their personal projects.
+Me sorprendió porque había estado leyendo mucho sobre las nuevas herramientas que se estaban lanzando y sabía que Create React App no era la mejor opción para un proyecto en producción.
+No solo eso, sino que el propio equipo no conocía alternativas como Vite o Next.js y ni siquiera las había utilizado recientemente o en sus proyectos personales.
 
-Seeing this, I decided to write a letter to the project manager, explaining the great error they were about to make.
+Al ver esto, decidí escribir una carta al jefe de proyecto, explicando el gran error que estaban a punto de cometer.
 
-So I rescued that letter and I want to share it with you today.
+Así que rescaté esa carta y quiero compartirla con vosotros hoy.
 
-This is the letter I wrote to the team. And the letter that changed the course of the project:
+Esta es la carta que escribí al equipo. Y la carta que cambió el rumbo del proyecto:
 
-## Hey team.
+## Hola equipo.
 
-In the past meeting we have discussed the frameworks that we are going to use in our projects, we need to talk more about it but there is something in particular that concerns me.
+En la reunión pasada hemos hablado de los frameworks que vamos a utilizar en nuestros proyectos, necesitamos hablar más sobre ello pero hay algo en particular que me preocupa.
 
-Once Create-React-App showed up, some opinions were that we could use it, as it has been tested before, but I think following this approach may result in more damage than benefits.
+Una vez que se mencionó Create-React-App, algunas opiniones fueron que podríamos utilizarlo, ya que se ha probado antes, pero creo que seguir este enfoque puede resultar en más daños que beneficios.
 
-Why do I think this? Let me say a few examples.
+¿Por qué pienso esto? Permitidme dar algunos ejemplos.
 
-First of all we have to make a simple question.
+En primer lugar, tenemos que hacernos una pregunta sencilla.
 
-## What is CRA?
+## ¿Qué es CRA?
 
-Although we (not only the company but us, developers as a community) have used CRA as an option to build single page apps even in production it doesn’t mean that we should it anymore.
+Aunque nosotros (no solo la empresa, sino nosotros, los desarrolladores como comunidad) hemos utilizado CRA como opción para crear aplicaciones de una sola página incluso en producción, no significa que debamos seguir haciéndolo.
 
-Create React App was a new way to easily create a React project to learn how React works that was released 6 years ago and it has been updated since then. Currently there are more options that solves React problems in a much more modern way that wasn’t possible at the time.
+Create React App fue una nueva forma de crear fácilmente un proyecto React para aprender cómo funciona React que se lanzó hace 6 años y se ha ido actualizando desde entonces. Actualmente hay más opciones que resuelven los problemas de React de una forma mucho más moderna que no era posible en aquel momento.
 
-![Docs of Create React app installation](/01/cra%20install.png)
+![Docs de la instalación de Create React app](/01/cra%20install.png)
 
-Yes, CRA is “officially“ maintained by Facebook, but due to its legacy, it can't be supported the same way as its alternatives.
+Sí, CRA está "oficialmente" mantenido por Facebook, pero debido a su legado, no puede ser soportado de la misma manera que sus alternativas.
 
-At this point you could be thinking,
-“Well, CRA is a tool that works and that’s not enough reason for changing it.“
-and that leads me to one of the stronger points.
+En este punto podríais estar pensando,
+"Bueno, CRA es una herramienta que funciona y eso no es razón suficiente para cambiarla".
+y eso me lleva a uno de los puntos más fuertes.
 
-## The React team does not recommend CRA for production
+## El equipo de React no recomienda CRA para producción
 
-Some of you may know the React docs page. If you look around the website, you may notice it looks a bit old and not updated with today standards of React, as most of the examples are still written with Class Components and the hooks documentation hasn’t changed since a couple of years ago.
+Algunos de vosotros conoceréis la página de documentación de React. Si echáis un vistazo por la web, podréis notar que parece un poco antigua y no actualizada con los estándares actuales de React, ya que la mayoría de los ejemplos aún están escritos con Componentes de Clase y la documentación de hooks no ha cambiado desde hace un par de años.
 
-![Docs of Create React app installation](/01/react%20docs.png)
+![Docs de la instalación de Create React app](/01/react%20docs.png)
 
-The React team is aware of this and they are working in a new docs website, written with hooks examples, and dedicating more content to detailing how React is used currently.
+El equipo de React es consciente de esto y está trabajando en una nueva web de documentación, escrita con ejemplos de hooks, y dedicando más contenido a detallar cómo se utiliza React actualmente.
 
-![Docs of Create React app installation](/01/newreactdocs.png)
+![Docs de la instalación de Create React app](/01/newreactdocs.png)
 
-In this new website, the idea of CRA being a learning tool is reinforced as we can see in the
+En este nuevo sitio web, se refuerza la idea de que CRA es una herramienta de aprendizaje, como podemos ver en la
 
-“Start a new React project“ section, and even recommends us Vite or Parcel as alternatives.
+sección "Start a new React project", e incluso nos recomienda Vite o Parcel como alternativas.
 
-![Docs of Create React app installation](/01/gettingstarted.png)
+![Docs de la instalación de Create React app](/01/gettingstarted.png)
 
-If we scroll down a little, we’ll reach the “Building with a full-featured framework“ section where the React teams recommends us to use Next.js instead if we are going to develop a full production application.
+Si bajamos un poco, llegaremos a la sección "Building with a full-featured framework" donde el equipo de React nos recomienda usar Next.js en su lugar si vamos a desarrollar una aplicación completa para producción.
 
-![Docs of Create React app installation](/01/buildingfullfeatures.png)
+![Docs de la instalación de Create React app](/01/buildingfullfeatures.png)
 
-## CRA tries to make everything work
+## CRA intenta que todo funcione
 
-One of the downsides with the default installation with CRA, is that, just because is focused to be a learning boilerplate it is design to suit plenty of use cases, the project is filled with dependencies, polyfills… a bunch of js files that we don’t need.
+Uno de los inconvenientes de la instalación por defecto de CRA es que, precisamente por estar enfocado a ser un boilerplate de aprendizaje, está diseñado para adaptarse a muchos casos de uso, el proyecto está lleno de dependencias, polyfills... un montón de archivos js que no necesitamos.
 
-The dependencies alone leaves a 300mb folder of node_modules out of the box, without installing anything else.
+Solo las dependencias dejan una carpeta de 300mb de node_modules de serie, sin instalar nada más.
 
-It also makes the develop experience much slower than it should be, comparing it to the faster Hot Module Replacement time, faster build time and <500ms for setting up the development environment that Vite offers.
+También hace que la experiencia de desarrollo sea mucho más lenta de lo que debería ser, comparándola con el tiempo de Hot Module Replacement más rápido, el tiempo de compilación más rápido y los <500ms para configurar el entorno de desarrollo que ofrece Vite.
 
-With this, in my personal opinion, makes the project feel heavy and sometimes slow.
+Con esto, en mi opinión personal, hace que el proyecto se sienta pesado y a veces lento.
 
-## The development time is longer with CRA
+## El tiempo de desarrollo es más largo con CRA
 
-As we already know CRA does not provide anything out of the box that helps ups with the speed of development, the packages for styling, routing, (advanced) state can be freely chosen by the devs to choose. This is a good thing of course, but that means its basically the same as, for example a new project created with Vite, with the exception that Vite has better performance and less boilerplate, so there is no point in using CRA.
+Como ya sabemos, CRA no proporciona nada de serie que nos ayude con la velocidad de desarrollo, los paquetes para el estilo, el enrutamiento, el estado (avanzado) pueden ser elegidos libremente por los desarrolladores. Esto es algo bueno, por supuesto, pero significa que es básicamente lo mismo que, por ejemplo, un nuevo proyecto creado con Vite, con la excepción de que Vite tiene mejor rendimiento y menos boilerplate, así que no tiene sentido usar CRA.
 
-The migration from CRA to an alternative is an option to consider, but I strongly suggest not including it for any new project.
+La migración de CRA a una alternativa es una opción a considerar, pero sugiero encarecidamente no incluirlo en ningún proyecto nuevo.
 
-Thank you for your time.
+Gracias por vuestro tiempo.
