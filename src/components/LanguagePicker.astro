@@ -1,12 +1,19 @@
 ---
 import { languages } from '../i18n/ui'
+import { getLangFromUrl } from '../i18n/utils'
+const language = getLangFromUrl(Astro.url)
 ---
 
 <ul class='flex gap-4'>
   {
     Object.entries(languages).map(([lang, label]) => (
       <li>
-        <a href={`/${lang}/`}>{label}</a>
+        <a
+          href={`/${lang}/`}
+          class={lang === language ? 'border-b border-b-neutral-950' : ''}
+        >
+          {label}
+        </a>
       </li>
     ))
   }

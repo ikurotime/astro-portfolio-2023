@@ -2,7 +2,9 @@
 const { title, description, tags } = Astro.props
 ---
 
-<div class='flex py-4 px-4 flex-col gap-2 border rounded-md bg-white'>
+<div
+  class='flex py-4 px-4 flex-col gap-2 border rounded-md bg-white hover:shadow transition-shadow ease-in-out duration-300'
+>
   <span class='text-zinc-800 text-lg'><strong>{title}</strong></span>
   <span>{description}</span>
   {

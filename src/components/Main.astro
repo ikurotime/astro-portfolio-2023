@@ -10,7 +10,6 @@ const getPath = (page: { slug: string }) => {
 
 const lang = getLangFromUrl(Astro.url)
 const posts = await getCollection('posts')
-console.log(posts)
 const projects = await getCollection('projects')
 ---
 
