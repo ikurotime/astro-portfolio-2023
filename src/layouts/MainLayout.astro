@@ -1,10 +1,10 @@
 ---
 import '@fontsource-variable/inter'
 import Navbar from './Navbar.astro'
-const { title } = Astro.props
+const { title, language } = Astro.props
 ---
 
-<html lang='en'>
+<html lang={language}>
   <head>
     <meta charset='utf-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />

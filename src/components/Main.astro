@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content'
+import Card from '../layouts/Card.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const getPath = (page: { slug: string }) => {
+  const [lang, ...slug] = page.slug.split('/')
+  return `/${lang}/posts/${slug.join('/') || ''}`
+}
+
+const lang = getLangFromUrl(Astro.url)
+const posts = await getCollection('posts')
+console.log(posts)
+const projects = await getCollection('projects')
+---
+
+<div class='max-w-1/2 flex-1'>
+  <span class='text-zinc-700'><strong>Projects 🧱</strong></span>
+  <div class='py-4'>
+    <ul class='gap-4 flex flex-col'>
+      {
+        projects
+          .filter((post) => post.data.language === lang)
+          .map((project) => (
+            <li class='flex w-full flex-col'>
+              <a href={project.data.href} rel='noreferrer' target='_blank'>
+                <Card
+                  title={project.data.title}
+                  description={project.data.description}
+                  tags={project.data.tags}
+                />
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </div>
+</div>
+<!--       <div class='max-w-1/2 flex-1 py-4'>
+      <span class='text-zinc-700'><strong># Skills 🛠</strong></span>
+    </div> -->
+<div class='max-w-1/2 flex-1'>
+  <span class='text-zinc-700'
+    ><strong>Blog 📒</strong>
+    <div class='py-4'>
+      <ul class='gap-4 flex flex-col'>
+        {
+          posts
+            .filter(
+              (post) => post.data.draft === false && post.data.language === lang
+            )
+            .map((post) => (
+              <li class='flex w-full flex-col'>
+                <a href={getPath(post)}>
+                  <Card
+                    title={post.data.title}
+                    description={post.data.description}
+                    tags={post.data.tags}
+                  />
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </span>
+</div>

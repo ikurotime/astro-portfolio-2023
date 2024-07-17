@@ -1,13 +1,14 @@
 ---
 title: 'Deploy docker containers in VPS with Github Actions'
 pubDate: 2024-04-13
+language: en
 description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
 author: 'Kuro'
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
 tags: ['astro', 'bloguear', 'aprender en público']
-layout: ../../layouts/PostLayout.astro
+layout: ../../../layouts/PostLayout.astro
 draft: true
 ---
 

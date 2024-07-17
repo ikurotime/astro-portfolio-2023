@@ -1,14 +1,15 @@
 ---
-title: 'You shouldn’t use Create React App'
+title: 'Create a Slack integration for AWS Amplify using SNS'
 pubDate: 2024-03-29
 description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
 # author: 'Kuro'
+language: es
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
 tags: ['react', 'create-react-app']
-draft: false
-layout: ../../layouts/PostLayout.astro
+draft: true
+layout: ../../../layouts/PostLayout.astro
 ---
 
 Around September, 2022, I was working in a company that was starting to use React in their projects. I was a simple junior of the frontend team and we had to make a decision about the tools we were going to use in our projects.

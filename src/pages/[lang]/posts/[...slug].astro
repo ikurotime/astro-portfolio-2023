@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const pages = await getCollection('posts')
+  console.log(pages)
+  const paths = pages.map((page: { slug: string }) => {
+    const [lang, ...slug] = page.slug.split('/')
+    return {
+      params: { lang, slug: slug.join('/') || undefined },
+      props: page
+    }
+  })
+
+  return paths
+}
+
+const page = Astro.props as {
+  render(): { Content: any } | PromiseLike<{ Content: any }>
+  data: {
+    title: unknown
+    author: unknown
+    pubDate: Date
+  }
+  slug: string
+}
+
+const { Content } = await page.render()
+---
+
+<Content />
