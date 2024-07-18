@@ -1,5 +1,5 @@
 ---
-const { title, description, tags } = Astro.props
+const { title, description, tags, pubDate } = Astro.props
 ---
 
 <div
@@ -7,15 +7,16 @@ const { title, description, tags } = Astro.props
 >
   <span class='text-zinc-800 text-lg'><strong>{title}</strong></span>
   <span>{description}</span>
-  {
-    tags ? (
-      <div class='flex w-full gap-2'>
-        {tags.map((tag: string) => (
+
+  <div class='flex items-center w-full gap-2'>
+    {
+      tags &&
+        tags.map((tag: string) => (
           <span class='text-sm px-2 py-1 border rounded-md bg-slate-200'>
             {tag}
           </span>
-        ))}
-      </div>
-    ) : null
-  }
+        ))
+    }
+    <span class='text-gray-500'>{pubDate}</span>
+  </div>
 </div>

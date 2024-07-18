@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
   const pages = await getCollection('posts')
-  console.log(pages)
   const paths = pages.map((page: { slug: string }) => {
     const [lang, ...slug] = page.slug.split('/')
     return {

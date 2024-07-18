@@ -48,6 +48,11 @@ const projects = await getCollection('projects')
             .filter(
               (post) => post.data.draft === false && post.data.language === lang
             )
+            .sort(
+              (a, b) =>
+                new Date(b.data.pubDate).getTime() -
+                new Date(a.data.pubDate).getTime()
+            )
             .map((post) => (
               <li class='flex w-full flex-col'>
                 <a href={getPath(post)}>
@@ -55,6 +60,7 @@ const projects = await getCollection('projects')
                     title={post.data.title}
                     description={post.data.description}
                     tags={post.data.tags}
+                    pubDate={new Date(post.data.pubDate).toLocaleDateString()}
                   />
                 </a>
               </li>

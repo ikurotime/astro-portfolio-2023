@@ -1,15 +1,15 @@
 ---
-title: 'Deploy docker containers in VPS with Github Actions'
-pubDate: 2024-04-13
-description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
+title: 'Subir contentedores de docker en un VPS con Github Actions'
+pubDate: 2024-07-18
+description: 'Cómo hacer un pipeline de CI/CD para subir contenedores de Docker a un VPS con Github Actions'
 author: 'Kuro'
 language: es
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
-tags: ['astro', 'bloguear', 'aprender en público']
+tags: ['VPS', 'Docker', 'Github Actions','CI/CD']
 layout: ../../../layouts/PostLayout.astro
-draft: true
+draft: false
 ---
 
 We all love Docker, and if you don't, you should. 
