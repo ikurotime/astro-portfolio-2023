@@ -14,7 +14,7 @@ draft: false
 
 We all love Docker, and if you don't, you should. 
 
-Docker is a great tool that allows us to create containers with our applications and run them in any environment. But what if we want to deploy our containers in a VPS? Too complicated? Not at all! In this post, I will show you how to deploy your Docker containers in a VPS using Github Actions.
+Docker is a great tool that allows us to create containers with our applications and run them in any environment. But what if we want to deploy our containers in a VPS? In this post, I will show you how to deploy your Docker containers in a VPS using Github Actions.
 
 ## What are we going to do?
 
