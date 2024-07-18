@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content'
+import Metadata from '../../../../components/Metadata.astro'
 
 export async function getStaticPaths() {
   const pages = await getCollection('posts')
   const paths = pages.map((page: { slug: string }) => {
     const [lang, ...slug] = page.slug.split('/')
     return {
-      params: { lang, slug: slug.join('/') || undefined },
+      params: { lang: lang || '', slug: slug.join('/') || undefined },
       props: page
     }
   })
@@ -17,13 +18,12 @@ export async function getStaticPaths() {
 const page = Astro.props as {
   render(): { Content: any } | PromiseLike<{ Content: any }>
   data: {
-    title: unknown
-    author: unknown
+    title: string
+    description: string
     pubDate: Date
   }
   slug: string
 }
-
 const { Content } = await page.render()
 ---
 
