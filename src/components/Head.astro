@@ -2,11 +2,11 @@
 interface Props {
   title: string
   description: string
+  keywords: string[]
 }
-const { title, description } = Astro.props as Props
+const { title, description, keywords } = Astro.props as Props
 const permalink = new URL(Astro.url.pathname, Astro.site).href
-const ogImageURL = new URL(Astro.url.pathname, Astro.site).href + '/og.png'
-console.log(ogImageURL)
+const ogImageURL = permalink + '/og.png'
 ---
 
 <head>
@@ -16,8 +16,8 @@ console.log(ogImageURL)
   <meta name='description' content={description} />
 
   <!-- The rest of your head content -->
-
-  <!-- Open Graph / Facebook -->
+  <meta property='keywords' content={keywords.join(', ')} />
+  <!-- Open Graph Facebook -- />
   <meta property='og:type' content='website' />
   <meta property='og:url' content={permalink} />
   <meta property='og:title' content={title} />

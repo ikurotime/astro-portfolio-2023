@@ -5,6 +5,7 @@ description: 'Cómo hacer un pipeline de CI/CD para subir contenedores de Docker
 author: 'Kuro'
 language: es
 heroImage: "../../../images/blog/hero-vps.png"
+keywords: ['Docker', 'VPS', 'Github Actions', 'CI/CD', 'Docker en VPS', 'Github Actions Docker', 'Docker Github Actions', 'Docker VPS', 'Docker en VPS con Github Actions', 'Docker en VPS con CI/CD', 'Docker en VPS con Github Actions CI/CD', 'Docker en servidor con Github Actions', 'Docker en servidor con CI/CD', 'Docker en servidor con Github Actions CI/CD']
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

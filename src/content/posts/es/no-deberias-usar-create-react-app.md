@@ -5,6 +5,8 @@ description: 'Este es un post que hice hace un par de años sobre cómo no deber
 # author: 'Kuro'
 language: es
 heroImage: ../../../images/blog/react-logo.png
+keywords: ['react', 'create-react-app', "facebook create react app", "cra o vite", "vite vs cra", "vite cra", "crear aplicación React sin create-react-app", "alternativas a create react app", "create react app vs vite", "create react app vs nextjs", "create react app vs vite vs nextjs", "alternativas a create-react-app", "alternativas a create react app", "alternativa a create react app", "¿debería usar create react app?", "create-react-app ya no está mantenida", "no uses create react app", "¿debería usar create-react-app?", "alternativas a cra", "create-react-app ya no está mantenida"]
+
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

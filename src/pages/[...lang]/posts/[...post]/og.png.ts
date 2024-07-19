@@ -27,7 +27,6 @@ export async function getStaticPaths() {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export const GET: APIRoute = async function get({ props, params }) {
-  console.log(params)
   const { title, heroImage } = props as Props
   const png = await PNG(OG(title, heroImage))
   return new Response(png, {
@@ -38,23 +37,21 @@ export const GET: APIRoute = async function get({ props, params }) {
 }
 
 const getBlogFrontmatterCollection = async () => {
-  const contentDirEn = 'src/content/posts/en'
-  const contentDirEs = 'src/content/posts/es'
-  const filesEn = await fs.readdir(contentDirEn)
-  const filesEs = await fs.readdir(contentDirEs)
-  const mdEn = filesEn.filter((file) => file.endsWith('.md'))
-  const mdEs = filesEs.filter((file) => file.endsWith('.md'))
+  const contentDirs = ['src/content/posts/en', 'src/content/posts/es']
+  const getFrontmatter = async (dir: string) => {
+    const files = await fs.readdir(dir)
+    return Promise.all(
+      files
+        .filter((file) => file.endsWith('.md'))
+        .map(async (file) => {
+          const content = await fs.readFile(`${dir}/${file}`, 'utf-8')
+          return matter(content).data
+        })
+    )
+  }
 
-  const frontmatterEs = mdEs.map(async (file) => {
-    const contentEs = await fs.readFile(`${contentDirEs}/${file}`, 'utf-8')
-    const { data: dataEs } = matter(contentEs)
-    return dataEs
-  })
-  const frontmatterEn = mdEn.map(async (file) => {
-    const contentEn = await fs.readFile(`${contentDirEn}/${file}`, 'utf-8')
-    const { data: dataEn } = matter(contentEn)
-    return dataEn
-  })
+  const frontmatterPromises = contentDirs.map(getFrontmatter)
+  const frontmatterCollections = await Promise.all(frontmatterPromises)
 
-  return Promise.all([...frontmatterEn, ...frontmatterEs])
+  return frontmatterCollections.flat()
 }

@@ -5,6 +5,7 @@ language: en
 description: 'How to make a CI/CD pipeline to deploy Docker containers in a VPS with Github Actions'
 author: 'Kuro'
 heroImage: ../../../images/blog/hero-vps.png
+keywords: ['Docker', 'VPS', 'Github Actions', 'CI/CD', 'Docker in VPS', 'Github Actions Docker', 'Docker Github Actions', 'Docker VPS', 'Docker in VPS with Github Actions', 'Docker in VPS with CI/CD', 'Docker in VPS with Github Actions CI/CD', 'Docker in server with Github Actions', 'Docker in server with CI/CD', 'Docker in server with Github Actions CI/CD']
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

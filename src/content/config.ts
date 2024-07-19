@@ -11,7 +11,8 @@ const postCollection = defineCollection({
       language: z.string(),
       heroImage: image().refine((img) => img.width >= 1080, {
         message: 'Cover image must be at least 1080 pixels wide!'
-      })
+      }),
+      keywords: z.array(z.string())
     })
 })
 
