@@ -3,6 +3,7 @@ title: 'You shouldn’t use Create React App'
 pubDate: 2024-03-29
 language: en
 description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
+heroImage: ../../../images/blog/react-logo.png
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

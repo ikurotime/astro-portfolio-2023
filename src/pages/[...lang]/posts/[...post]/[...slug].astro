@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content'
-import Metadata from '../../../../components/Metadata.astro'
 
 export async function getStaticPaths() {
   const pages = await getCollection('posts')

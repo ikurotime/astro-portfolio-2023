@@ -4,6 +4,7 @@ pubDate: 2024-07-18
 description: 'Cómo hacer un pipeline de CI/CD para subir contenedores de Docker a un VPS con Github Actions'
 author: 'Kuro'
 language: es
+heroImage: "../../../images/blog/hero-vps.png"
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

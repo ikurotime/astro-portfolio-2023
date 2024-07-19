@@ -1,14 +1,18 @@
 import { defineCollection, z } from 'astro:content'
 
 const postCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.date(),
-    draft: z.boolean(),
-    tags: z.array(z.string()),
-    language: z.string()
-  })
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.date(),
+      draft: z.boolean(),
+      tags: z.array(z.string()),
+      language: z.string(),
+      heroImage: image().refine((img) => img.width >= 1080, {
+        message: 'Cover image must be at least 1080 pixels wide!'
+      })
+    })
 })
 
 const projectCollection = defineCollection({

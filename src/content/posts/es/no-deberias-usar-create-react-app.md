@@ -4,6 +4,7 @@ pubDate: 2024-03-29
 description: 'Este es un post que hice hace un par de años sobre cómo no deberías usar create-react-app. Aún opino lo mismo a día de hoy.'
 # author: 'Kuro'
 language: es
+heroImage: ../../../images/blog/react-logo.png
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'

@@ -4,6 +4,7 @@ pubDate: 2024-07-18
 language: en
 description: 'How to make a CI/CD pipeline to deploy Docker containers in a VPS with Github Actions'
 author: 'Kuro'
+heroImage: ../../../images/blog/hero-vps.png
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
