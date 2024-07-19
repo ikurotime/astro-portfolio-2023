@@ -11,9 +11,9 @@ export async function getStaticPaths() {
   const blogData = await getBlogFrontmatterCollection()
   return blog.map((post) => {
     const postData = blogData.find((data) => data.title === post.data.title)
-    console.log({ post: post.slug })
     return {
       params: {
+        lang: post.slug.split('/').shift(),
         post: post.slug.split('/').pop()
       },
       props: {
@@ -26,8 +26,8 @@ export async function getStaticPaths() {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
-export const GET: APIRoute = async function get({ props }) {
-  console.log(props)
+export const GET: APIRoute = async function get({ props, params }) {
+  console.log(params)
   const { title, heroImage } = props as Props
   const png = await PNG(OG(title, heroImage))
   return new Response(png, {

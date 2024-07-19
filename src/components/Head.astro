@@ -2,11 +2,11 @@
 interface Props {
   title: string
   description: string
-  ogImage: string
 }
-const { title, description, ogImage } = Astro.props as Props
+const { title, description } = Astro.props as Props
 const permalink = new URL(Astro.url.pathname, Astro.site).href
-const ogImageURL = new URL(ogImage, Astro.site).href
+const ogImageURL = new URL(Astro.url.pathname, Astro.site).href + '/og.png'
+console.log(ogImageURL)
 ---
 
 <head>
