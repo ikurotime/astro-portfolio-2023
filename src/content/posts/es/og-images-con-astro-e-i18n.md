@@ -4,7 +4,7 @@ pubDate: 2024-07-19
 description: 'Configuramos las imágenes Open Graph en Astro para que se adapten a los diferentes idiomas de nuestro sitio web.'
 # author: 'Kuro'
 language: es
-heroImage: ../../../images/blog/react-logo.png
+heroImage: ../../../images/blog/astro_seo.png
 keywords: ['astro', 'og-images', 'i18n', 'astro i18n', 'astro og images', 'astro open graph images', 'astro open graph images i18n', 'astro open graph images internationalization', 'astro multi lenguaje', 'astro traducciones', 'astro internacionalizacion' ]
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
