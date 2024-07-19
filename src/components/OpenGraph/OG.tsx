@@ -54,11 +54,11 @@ export default function OG(
           }}
         />
       </div>
-      <img
+      {/*  <img
         src={`${basePath}opengraph/logo-badge.png`}
         style={{ position: 'absolute', bottom: '0', right: '0', zIndex: 100 }}
         width='146px'
-      />
+      /> */}
     </div>
   )
 }
