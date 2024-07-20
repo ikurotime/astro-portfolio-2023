@@ -1,29 +1,28 @@
 ---
-title: 'Deploy docker containers in VPS with Github Actions'
+title: 'Deploy docker containers in VPS with GitHub Actions'
 pubDate: 2024-07-18
 language: en
-description: 'How to make a CI/CD pipeline to deploy Docker containers in a VPS with Github Actions'
+description: 'How to make a CI/CD pipeline to deploy Docker containers in a VPS with GitHub Actions'
 author: 'Kuro'
 heroImage: ../../../images/blog/hero-vps.png
-keywords: ['Docker', 'VPS', 'Github Actions', 'CI/CD', 'Docker in VPS', 'Github Actions Docker', 'Docker Github Actions', 'Docker VPS', 'Docker in VPS with Github Actions', 'Docker in VPS with CI/CD', 'Docker in VPS with Github Actions CI/CD', 'Docker in server with Github Actions', 'Docker in server with CI/CD', 'Docker in server with Github Actions CI/CD']
+keywords: ['Docker', 'VPS', 'GitHub Actions', 'CI/CD', 'Docker in VPS', 'GitHub Actions Docker', 'Docker GitHub Actions', 'Docker VPS', 'Docker in VPS with GitHub Actions', 'Docker in VPS with CI/CD', 'Docker in VPS with GitHub Actions CI/CD', 'Docker in server with GitHub Actions', 'Docker in server with CI/CD', 'Docker in server with GitHub Actions CI/CD']
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
-tags: ['VPS', 'Docker', 'Github Actions','CI/CD']
+tags: ['VPS', 'Docker', 'GitHub Actions','CI/CD']
 layout: ../../../layouts/PostLayout.astro
 draft: false
 ---
 
 We all love Docker, and if you don't, you should. 
 
-Docker is a great tool that allows us to create containers with our applications and run them in any environment. But what if we want to deploy our containers in a VPS? In this post, I will show you how to deploy your Docker containers in a VPS using Github Actions.
+Docker is a great tool that allows us to create containers with our applications and run them in any environment. But what if we want to deploy our containers in a VPS? In this post, I will show you how to deploy your Docker containers in a VPS using GitHub Actions.
 
 ## What are we going to do?
 
-We are going to build a simple workflow that will allow us to deploy our custom images to [github container registry](https://github.com/features/packages), pull them from our VPS and run them.
+We are going to build a simple workflow that will allow us to deploy our custom images to [GitHub Container Registry](https://github.com/features/packages), pull them from our VPS and run them.
 
-
-Esentially, this will be just like having a simple CI/CD pipeline.
+Essentially, this will be just like having a simple CI/CD pipeline.
 
 ![Canvas drawing of workflow](/02/workflow.png)
 *Figure 1: Workflow diagram example of the CI/CD pipeline*
@@ -32,9 +31,9 @@ Esentially, this will be just like having a simple CI/CD pipeline.
 
 Before we start, you need to have the following:
 - A VPS with Docker installed
-- A Github repository with your app
+- A GitHub repository with your app
 
-## Step 1: Select a Github repository
+## Step 1: Select a GitHub repository
 
 You can either create a new repo or use an existing one. For this example, I will use a simple Node.js app.
 
@@ -62,7 +61,7 @@ $> node index.js
 Hello Node.js!
 ```
 
-Here is the folder structure until now:
+Here is the folder structure so far:
 
 ```bash
 .
@@ -122,9 +121,9 @@ We need to get some secrets to make this work. I'll explain it in a bit
 - `SSH_PRIVATE_KEY`
 - `WORK_DIR` 
 
-Now we need to get a Github API key. This will allow the Github Action Workflow to push our image to the Github Container Registry.
+Now we need to get a GitHub API key. This will allow the GitHub Action Workflow to push our image to the  Registry.
 
-On Github, go to `Settings` -> `Developer settings` -> `Personal access tokens` and click on `Generate new token`. Select the `write:packages` scope and click on `Generate token`.
+On GitHub, go to `Settings` -> `Developer settings` -> `Personal access tokens` and click on `Generate new token`. Select the `write:packages` scope and click on `Generate token`.
 
 Here's a shortcut to the page:
 
@@ -133,10 +132,10 @@ Here's a shortcut to the page:
 I will generate a Classic Token, this will be our `GH_SECRET`.
 
 For the next step, we need to get the SSH private key of our VPS.
-You will need to create a new user for the Github actions if you don't have one already. You can user whatever user you like, of course.
+You will need to create a new user for the GitHub actions if you don't have one already. You can use whatever user you like, of course.
 
 The user will be our `SSH_USER`.
-The ip address of your VPS will be our `SSH_HOST`.
+The IP address of your VPS will be our `SSH_HOST`.
 The directory where you want to deploy your app will be our `WORK_DIR`.
 
 Log into your VPS.
@@ -148,7 +147,7 @@ ssh-keygen -t rsa -b 4096
 
 Copy the content of the public key and add it to the `~/.ssh/authorized_keys` file of the user you want to use.
 
-`cat <path/to/public/key> >> ~/.ssh/authorized_key`
+`cat <path/to/public/key> >> ~/.ssh/authorized_keys`
 
 Now, copy the content of the *private* key to a new file.
   
@@ -160,14 +159,14 @@ This will be our `SSH_PRIVATE_KEY`.
 
 
 
-Now that we have all the secrets, we can set the secrets in our Github repository.
+Now that we have all the secrets, we can set the secrets in our GitHub repository.
 
 Go to the repo `Security` -> `Secrets and Variables` -> Actions and click on `New repository secret`. Add the secrets with the names mentioned above.
-![Github Secrets](/02/github_config.png)
+![GitHub Secrets](/02/github_config.png)
 
-## Step 4: Create a Github Actions workflow
+## Step 4: Create a GitHub Actions workflow
 
-In your Github repository, create a new folder called `.github/workflows` and add a new file called `docker-publish.yml`.
+In your GitHub repository, create a new folder called `.github/workflows` and add a new file called `docker-publish.yml`.
 
 ```yaml
 name: publish
@@ -187,7 +186,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Login
+      - name: login
         run: |
           echo ${{ secrets.GH_SECRET }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build and Publish
@@ -212,11 +211,11 @@ jobs:
         run: rm -rf ~/.ssh
 ```
 
-The workflow will trigger on every push to the `master` branch. It will build the image, push it to the Github Container Registry, and then log into the VPS, pull the image and run it.
+The workflow will trigger on every push to the `master` branch. It will build the image, push it to the  Registry, and then log into the VPS, pull the image and run it.
 
-## Step 6: Upload the image to Github Container Registry
+## Step 6: Upload the image to GitHub Container Registry
 
-We are almost ready, but first, we need to generate the image and push it to the Github Container Registry so the workflow can pull it.
+We are almost ready, but first, we need to generate the image and push it to the GitHub Container Registry so the workflow can pull it.
 
 1. Export the `GH_SECRET` variable in your terminal:
 ```bash
@@ -230,7 +229,7 @@ echo $GH_SECRET | docker login ghcr.io -u <username> --password-stdin
 ```bash
 docker build . -t ghcr.io/<username>/<image-name>:latest && docker push ghcr.io/<username>/<image-name>:latest
   ```
-The image will be pushed to the Github Container Registry.
+The image will be pushed to the GitHub Container Registry.
 
 In your server, you will need to repeat the steps 1 and 2 so the server can pull the image.
 
@@ -254,9 +253,9 @@ After creating the file, build the container by running:
 docker compose up -d
 ```
 
-Congratulations! You have successfully deployed your Docker container to your VPS using Github Actions!
+Congratulations! You have successfully deployed your Docker container to your VPS using GitHub Actions!
 
-Now everytime you push to the `main` branch, the workflow will trigger and deploy the new image to your VPS.
+Now every time you push to the `main` branch, the workflow will trigger and deploy the new image to your VPS.
 
 Here is a link to the full repository if you want to check it out:
 
