@@ -13,11 +13,9 @@ tags: ['VPS', 'Docker', 'Github Actions','CI/CD']
 layout: ../../../layouts/PostLayout.astro
 draft: false
 ---
-
 Let's set up a server where we can upload all our projects. We'll be able to upload projects in any language, and they'll be automatically deployed when we push code, just like on Vercel.
 
 There are tools that allow you to replicate similar functionality, like [coolify](ify.io/docs/introduction). But we're going to build it ourselves.
-
 ## Buying and Configuring the VPS
 
 We're going to buy our VPS from https://contabo.com/en/, but you can use Hetzner, Digital Ocean, or any provider you prefer.
@@ -26,6 +24,7 @@ Our only requirement will be to install Ubuntu 20.
 Once we have the IP address and our password, we can access our server via SSH.
 
 ![Screenshot 2024-09-12 at 13.52.33.png](/04/contabo.png)
+
 
 ### Generating Our Private Keys
 
@@ -91,7 +90,7 @@ I use vim, but you can use any editor you prefer.
 
 Look for the following lines and leave them like this:
 
-```
+```bash
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 ...
@@ -120,7 +119,7 @@ Now it's time to Dockerize our app.
 ```yaml
 services:
   askfor:
-    image: ghcr.io/afordigital/askfor:prod
+    image: ghcr.io/afordigital/askfor:prod #Your app image
     ports:
       - "5173:5173"
 ```

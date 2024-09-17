@@ -30,7 +30,7 @@ Una vez tengamos la dirección IP y nuestra contraseña, podemos acceder por ssh
 
 Vamos a generar unas claves ssh para nuestro servidor con el siguiente comando
 
-```jsx
+```bash
 ssh-keygen -t ed25519 -C "tucódigosecreto"
 ```
 
@@ -40,7 +40,7 @@ ssh-keygen -t ed25519 -C "tucódigosecreto"
 
 Es altamente recomendable crear un usuario nuevo en lugar de usar el root asi que vamos a hacerlo.
 
-```jsx
+```bash
 $ adduser afor
 ```
 
@@ -48,7 +48,7 @@ $ adduser afor
 
 Después vamos a darle privilegios de sudo al usuario que acabamos de crear
 
-```jsx
+```bash
 // Damos privilegios de sudo
 usermod -aG sudo afor
 // Cambiamos a ese usuario
@@ -70,7 +70,7 @@ Una vez se propague, nuestro dominio, resolverá a nuestro DNS.
 
 Una vez tenemos la clave, la tenemos que registrar en el servidor
 
-```jsx
+```bash
 shh-copy-id afor@[IP]
 ```
 
@@ -82,7 +82,7 @@ al introducir nuestro phrase, podremos conectarnos otra vez.
 
 Para deshabilitarlo tenemos que modificar la configuración de ssh.
 
-```jsx
+```bash
 sudo vim /etc/ssh/sshd_config
 ```
 
@@ -90,7 +90,7 @@ Yo uso vim, pero puedes usar el editor que quieras
 
 Buscamos las siguientes lineas y las dejamos asi:
 
-```jsx
+```bash
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 ...
@@ -119,7 +119,7 @@ Ahora es cuando toca Dockerizar nuestra app.
 ```yaml
 services:
   askfor:
-    image: ghrc.io/afordigital/askfor:prod
+    image: ghrc.io/afordigital/askfor:prod #La imagen de tu app
 		ports:
 				- "5173:5173"
 ```
@@ -132,7 +132,7 @@ Para ello utilizaremos un firewall, Uncomplicated Firewall / UFW, que además es
 
 Primero vamos a deshabilitar todo el trafico entrante que le llegue al VPS y habilitar trafico saliente.
 
-```jsx
+```bash
 $> sudo ufw default deny incoming 
 $> sudo ufw default allow outgoing 
 ```
