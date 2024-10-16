@@ -10,39 +10,13 @@ const getPath = (page: { slug: string }) => {
 
 const lang = getLangFromUrl(Astro.url)
 const posts = await getCollection('posts')
-const projects = await getCollection('projects')
 ---
 
-<div class='max-w-1/2 flex-1'>
-  <span class='text-zinc-700'><strong>Projects 🧱</strong></span>
-  <div class='py-4'>
-    <ul class='gap-4 flex flex-col'>
-      {
-        projects
-          .filter((post) => post.data.language === lang)
-          .map((project) => (
-            <li class='flex w-full flex-col'>
-              <a href={project.data.href} rel='noreferrer' target='_blank'>
-                <Card
-                  title={project.data.title}
-                  description={project.data.description}
-                  tags={project.data.tags}
-                />
-              </a>
-            </li>
-          ))
-      }
-    </ul>
-  </div>
-</div>
-<!--       <div class='max-w-1/2 flex-1 py-4'>
-      <span class='text-zinc-700'><strong># Skills 🛠</strong></span>
-    </div> -->
 <div class='max-w-1/2 flex-1'>
   <span class='text-zinc-700'
     ><strong>Blog 📒</strong>
     <div class='py-4'>
-      <ul class='gap-4 flex flex-col'>
+      <ul class='gap-4 grid grid-cols-2'>
         {
           posts
             .filter(
