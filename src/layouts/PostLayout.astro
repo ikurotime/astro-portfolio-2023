@@ -3,6 +3,7 @@ import Prose from './Prose.astro'
 import '@fontsource-variable/inter'
 import Head from '../components/Head.astro'
 const { language, frontmatter } = Astro.props
+
 ---
 
 <html lang={language}>
@@ -24,12 +25,15 @@ const { language, frontmatter } = Astro.props
     <div class='flex flex-row w-full'>
       <div class='flex flex-col m-auto gap-2 sm:p-8 px-4 md:p-14'>
         <a class='text-gray-500 font-bold text-xl mt-6' href='/'> &lt;- Blog </a>
-        <span class='text-gray-500'>
-          {new Date(frontmatter.pubDate).toLocaleDateString()}
-        </span>
-        <h1 class='text-2xl md:text-4xl font-bold my-8'>
+        <h1 class='text-2xl md:text-4xl font-bold mb-2'>
           {frontmatter.title}
         </h1>
+        <span class='text-gray-500 text-lg mb-4'>
+          {frontmatter.description}
+          </span>
+        <span class='text-gray-500'>
+            {new Date(frontmatter.pubDate).toLocaleDateString()}
+        </span>
         <Prose frontmatter={frontmatter}>
           <slot />
         </Prose>
