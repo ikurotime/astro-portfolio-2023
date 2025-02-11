@@ -1,7 +1,7 @@
 ---
 title: 'Production-Ready Deployments to VPS'
 pubDate: 2024-09-16
-description: 'How to set up a VPS for deploying applications in production.'
+description: 'A more complete CI/CD pipeline'
 author: 'Kuro'
 language: en
 heroImage: "../../../images/blog/hero-vps.png"

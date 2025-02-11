@@ -2,7 +2,7 @@
 title: 'Deploy docker containers in VPS with GitHub Actions'
 pubDate: 2024-07-18
 language: en
-description: 'How to make a CI/CD pipeline to deploy Docker containers in a VPS with GitHub Actions'
+description: 'For a simple CI/CD pipeline'
 author: 'Kuro'
 heroImage: ../../../images/blog/hero-vps.png
 keywords: ['Docker', 'VPS', 'GitHub Actions', 'CI/CD', 'Docker in VPS', 'GitHub Actions Docker', 'Docker GitHub Actions', 'Docker VPS', 'Docker in VPS with GitHub Actions', 'Docker in VPS with CI/CD', 'Docker in VPS with GitHub Actions CI/CD', 'Docker in server with GitHub Actions', 'Docker in server with CI/CD', 'Docker in server with GitHub Actions CI/CD']

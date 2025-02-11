@@ -1,7 +1,7 @@
 ---
-title: 'Subir contentedores de docker en un VPS con Github Actions'
+title: 'Subir contenedores de docker en un VPS con Github Actions'
 pubDate: 2024-07-18
-description: 'Cómo hacer un pipeline de CI/CD para subir contenedores de Docker a un VPS con Github Actions'
+description: 'Una pipeline algo más completa'
 author: 'Kuro'
 language: es
 heroImage: "../../../images/blog/hero-vps.png"

@@ -12,35 +12,33 @@ const lang = getLangFromUrl(Astro.url)
 const posts = await getCollection('posts')
 ---
 
-<div class='max-w-1/2 flex-1'>
-  <span class='text-zinc-700'
-    ><strong>Blog 📒</strong>
-    <div class='py-4'>
-      <ul class='gap-4 grid grid-cols-1 md:grid-cols-2'>
-        {
-          posts
-            .filter(
-              (post) => post.data.draft === false && post.data.language === lang
-            )
-            .sort(
-              (a, b) =>
-                new Date(b.data.pubDate).getTime() -
-                new Date(a.data.pubDate).getTime()
-            )
-            .map((post) => (
-              <li class='flex w-full flex-col'>
-                <a href={getPath(post)}>
-                  <Card
-                    title={post.data.title}
-                    description={post.data.description}
-                    tags={post.data.tags}
-                    pubDate={new Date(post.data.pubDate).toLocaleDateString()}
-                  />
-                </a>
-              </li>
-            ))
-        }
-      </ul>
-    </div>
-  </span>
+<div class='flex-1'>
+  <span class='text-[#B5B3AD] text-md px-4'>Blog 📒</span>
+  <div class='py-4'>
+    <ul class='gap-4 grid grid-cols-1 md:grid-cols-1'>
+      {
+        posts
+          .filter(
+            (post) => post.data.draft === false && post.data.language === lang
+          )
+          .sort(
+            (a, b) =>
+              new Date(b.data.pubDate).getTime() -
+              new Date(a.data.pubDate).getTime()
+          )
+          .map((post) => (
+            <li class='flex w-full flex-col'>
+              <a href={getPath(post)}>
+                <Card
+                  title={post.data.title}
+                  description={post.data.description}
+                  tags={post.data.tags}
+                  pubDate={new Date(post.data.pubDate).toLocaleDateString()}
+                />
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </div>
 </div>

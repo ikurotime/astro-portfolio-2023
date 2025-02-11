@@ -2,7 +2,7 @@
 title: 'You shouldn’t use Create React App'
 pubDate: 2024-03-29
 language: en
-description: 'This is a post I made about why you should not use Create React App a couple of years ago. I still stand by this post today.'
+description: 'I still stand by this post today'
 heroImage: ../../../images/blog/react-logo.png
 keywords: ['react', 'create-react-app',"facebook create react app","cra or vite","vite vs cra", "vite cra","create react app without create-react-app","create react app alternatives","create react app vs vite","create react app vs nextjs","create react app vs vite vs nextjs","create-react-app alternatives","alternatives to create react app","create react app alternative","should i use create react app","create-react-app not maintained anymore","don't use create react app","should i use create-react-app","cra alternatives","create-react-app is not maintained anymore"]
 image:

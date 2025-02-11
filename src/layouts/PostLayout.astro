@@ -2,7 +2,6 @@
 import Prose from './Prose.astro'
 import '@fontsource-variable/inter'
 import Head from '../components/Head.astro'
-import { ViewTransitions } from 'astro:transitions'
 const { language, frontmatter } = Astro.props
 ---
 
@@ -20,21 +19,20 @@ const { language, frontmatter } = Astro.props
       description={frontmatter.description}
       keywords={frontmatter.keywords}
     />
-    <ViewTransitions />
   </head>
-  <body class='flex min-h-screen bg-gray-50 w-full'>
+  <body class='flex min-h-screen bg-[#111110] w-full'>
     <div class='flex flex-row w-full'>
       <div class='flex flex-col m-auto gap-2 sm:p-8 px-4 md:p-14 max-w-[75ch]'>
-        <a class='text-gray-500 font-bold text-xl mt-6' href='/'>
+        <a class='text-[#B5B3AD] font-bold text-xl mt-6' href='/'>
           &lt;- Blog
         </a>
-        <h1 class='text-2xl md:text-4xl font-bold mb-2'>
+        <h1 class='text-2xl text-[#EEEEEC] md:text-4xl font-bold mb-2'>
           {frontmatter.title}
         </h1>
-        <span class='text-gray-500 text-lg mb-4'>
+        <span class='text-[#B5B3AD] text-lg mb-4'>
           {frontmatter.description}
         </span>
-        <span class='text-gray-500'>
+        <span class='text-[#B5B3AD]'>
           {new Date(frontmatter.pubDate).toLocaleDateString()}
         </span>
         <Prose frontmatter={frontmatter}>
@@ -42,25 +40,7 @@ const { language, frontmatter } = Astro.props
         </Prose>
       </div>
     </div>
-    <div
-      class='border-l xl:flex flex-shrink-0 p-16 px-12 border-gray-200 w-3/12 hidden relative'
-    >
-      <div class='flex flex-col gap-2 sticky top-16 h-fit'>
-        <img
-          src='https://avatars.githubusercontent.com/u/77805983?v=4'
-          class='rounded-full size-40'
-          alt='Author of the blog'
-        />
-        <strong class='text-xl'>Kuro</strong>
-        <span class='text-gray-500 text-lg'>Building things is fun.</span>
-        <a href='https://x.com/ikurotime' target='_blank' rel='norefferer'>
-          <strong>@ikurotime</strong>
-        </a>
-        <a href='https://github.com/ikurotime' target='_blank' rel='norefferer'>
-          <strong>Github</strong>
-        </a>
-      </div>
-    </div>
+
     <style>
       body {
         font-family: 'Inter Variable', sans-serif;

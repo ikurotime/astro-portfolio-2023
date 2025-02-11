@@ -1,7 +1,7 @@
 ---
 title: 'OpenGraph images with Astro and i18n'
 pubDate: 2024-07-19
-description: 'We configure OpenGraph images in Astro to adapt to the different languages of our website.'
+description: 'For a multilingual blog'
 # author: 'Kuro'
 language: en
 heroImage: ../../../images/blog/astro_seo.png
