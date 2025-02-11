@@ -218,7 +218,7 @@ Esto hará que las solicitudes se repartan entre la cantidad de replicas que cre
 
 ## CI / CD
 
-Ya he escrito sobre como hacer CI/CD con Github Actions en [otro post](https://davidhuertas.dev/es/subir-contenedores-de-docker-en-un-vps-usando-github-actions/). 
+Ya he escrito sobre como hacer CI/CD con Github Actions en [otro post](https://davidhuertas.dev/es/posts/subir-contenedores-de-docker-en-un-vps-usando-github-actions/). 
 
 Pero recientemente he descubierto que hay algunas imagenes de docker que pueden encargarse de esto. Uno de ellos es watchtower. Monitorizará los contenedores que tengamos en nuestro servidor y si hay una nueva versión, la descargará y reiniciará el contenedor.
 

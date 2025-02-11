@@ -218,7 +218,7 @@ This will make the requests spread among the number of replicas we create.
 
 ## CI / CD
 
-I've already written about how to deploy a container to a VPS using Github Actions. You can check it out [here](https://davidhuertas.dev/en/deploy-docker-containers-to-a-vps-using-github-actions).
+I've already written about how to deploy a container to a VPS using Github Actions. You can check it out [here](https://davidhuertas.dev/en/posts/deploy-docker-containers-in-vps-with-github-actions).
 
 But recently I discovered there are some docker images that can help us with this task. One of them is [watchtower](https://github.com/containrrr/watchtower), which will monitor the tag of our app's image. When it changes, it will re-download the image and restart the containers.
 
