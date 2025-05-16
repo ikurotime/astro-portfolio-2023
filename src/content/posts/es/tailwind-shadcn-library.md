@@ -17,6 +17,8 @@ draft: false
 
 Si eres desarrollador de React, probablemente hayas oído hablar de shadcn/ui - una colección de componentes bellamente diseñados y accesibles que puedes copiar y personalizar para tus proyectos. En esta guía, aprenderemos a crear nuestra propia biblioteca de componentes usando shadcn/ui y Tailwind v4, facilitando el compartir y reutilizar componentes en diferentes proyectos.
 
+Puedes ver el codigo en [github](https://github.com/ikurotime/ui-lib-template)
+
 ## Lo que Vamos a hacer
 
 Vamos a crear una libreria de componentes que:

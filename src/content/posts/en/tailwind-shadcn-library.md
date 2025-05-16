@@ -17,6 +17,8 @@ draft: false
 
 If you're a React developer, you've likely heard of shadcn/ui - a collection of beautifully designed, accessible components that you can copy and customize for your projects. In this guide, we'll learn how to create our own component library using shadcn/ui and Tailwind v4, making it easy to share and reuse components across different projects.
 
+You can see the code in [github](https://github.com/ikurotime/ui-lib-template)
+
 ## What We'll Build
 
 We'll create a component library that:
