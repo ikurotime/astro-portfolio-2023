@@ -1,48 +1,48 @@
 ---
-title: 'Create a Shadcn UI Component Library with Tailwind v4 and Vite library mode'
+title: 'Crear una Libreria de Componentes Shadcn UI con Tailwind v4 y el modo biblioteca de Vite'
 pubDate: 2025-05-16
-description: 'A comprehensive guide to create a custom component library using shadcn/ui, with detailed explanations for each step'
+description: 'Una guía completa para crear componentes usando shadcn/ui, con explicaciones detalladas de cada paso'
 author: 'Kuro'
-language: en
+language: es
 heroImage: "../../../images/blog/lib.jpg"
-keywords: ['Tailwind', 'Shadcn', 'UI', 'Component', 'Library', 'Tailwind v4', 'Vite', 'Library mode', 'vite', 'react', 'tutorial', 'typescript', 'software', 'coding', 'development', 'engineering', 'inclusive', 'community']
+keywords: ['Tailwind', 'Shadcn', 'UI', 'Componente', 'Biblioteca', 'Tailwind v4', 'Vite', 'Modo biblioteca', 'vite', 'react', 'tutorial', 'typescript', 'software', 'programación', 'desarrollo', 'ingeniería', 'inclusivo', 'comunidad']
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
-  alt: 'The full Astro logo.'
+  alt: 'El logotipo completo de Astro.'
 tags: ['typescript', 'react',]
 layout: ../../../layouts/PostLayout.astro
 draft: false
 ---
 
 
-If you're a React developer, you've likely heard of shadcn/ui - a collection of beautifully designed, accessible components that you can copy and customize for your projects. In this guide, we'll learn how to create our own component library using shadcn/ui and Tailwind v4, making it easy to share and reuse components across different projects.
+Si eres desarrollador de React, probablemente hayas oído hablar de shadcn/ui - una colección de componentes bellamente diseñados y accesibles que puedes copiar y personalizar para tus proyectos. En esta guía, aprenderemos a crear nuestra propia biblioteca de componentes usando shadcn/ui y Tailwind v4, facilitando el compartir y reutilizar componentes en diferentes proyectos.
 
-## What We'll Build
+## Lo que Vamos a hacer
 
-We'll create a component library that:
-- Uses modern tools (Vite, Tailwind v4, TypeScript)
-- Can be published to npm
-- Includes shadcn/ui components
-- Supports both ESM and CommonJS formats
-- Has proper TypeScript support
-- Includes CSS-in-JS for easy consumption
+Vamos a crear una libreria de componentes que:
+- Utiliza herramientas modernas (Vite, Tailwind v4, TypeScript)
+- Puede ser publicada en npm
+- Incluye componentes de shadcn/ui
+- Soporta formatos ESM y CommonJS
+- Tiene soporte adecuado para TypeScript
+- Incluye CSS-in-JS para fácil consumo
 
-## Prerequisites
+## Requisitos Previos
 
-Before we begin, make sure you have:
-- Node.js installed (version 18 or higher recommended)
-- Basic knowledge of React and TypeScript
-- Familiarity with npm/pnpm package management
-- A code editor (VS Code recommended)
+Antes de comenzar, asegúrate de tener:
+- Node.js instalado (versión 18 o superior recomendada)
+- Conocimientos básicos de React y TypeScript
+- Familiaridad con la gestión de paquetes npm/pnpm
+- Un editor de código (VS Code recomendado)
 
-## Step 1: Project Setup
+## Paso 1: Configuración del Proyecto
 
-### 1.1 Create a New Project
+### 1.1 Crear un Nuevo Proyecto
 
-First, let's create a new project using Vite. We'll use pnpm as our package manager, but you can use npm or yarn if you prefer.
+Primero, vamos a crear un nuevo proyecto usando Vite. Usaremos pnpm como gestor de paquetes, pero puedes usar npm o yarn si lo prefieres.
 
 ```bash
-# Create a new project with Vite
+# Crear un nuevo proyecto con Vite
 pnpm create vite@latest
 
 ◇  Project name:
@@ -63,74 +63,74 @@ pnpm create vite@latest
   pnpm run dev
 ```
 
-### 1.2 Install Core Dependencies
+### 1.2 Instalar Dependencias Principales
 
-Let's install the essential dependencies we'll need:
+Vamos a instalar las dependencias esenciales que necesitaremos:
 
 ```bash
-# Development dependencies
+# Dependencias
 pnpm install -D tailwindcss @tailwindcss/vite jest @jest/globals @types/node
 ```
 
-These packages are:
-- `tailwindcss`: The core Tailwind CSS framework
-- `@tailwindcss/vite`: Vite plugin for Tailwind
-- `jest` and `@jest/globals`: For testing our components
-- `@types/node`: TypeScript definitions for Node.js
+Estos paquetes son:
+- `tailwindcss`: El framework principal de Tailwind CSS
+- `@tailwindcss/vite`: Plugin de Vite para Tailwind
+- `jest` y `@jest/globals`: Para probar nuestros componentes
+- `@types/node`: Definiciones de TypeScript para Node.js
 
-## Step 2: Project Structure
+## Paso 2: Estructura del Proyecto
 
-### 2.1 Clean Up Default Files
+### 2.1 Limpiar Archivos por Defecto
 
-We'll start with a clean slate by removing the default files that Vite creates:
+Comenzaremos con una base limpia eliminando los archivos que Vite crea por defecto:
 
 ```bash
-# Remove default files and directories
+# Eliminar archivos y directorios por defecto
 rm -rf public/ src/** index.html tsconfig.app.json tsconfig.node.json
 ```
 
-### 2.2 Create Essential Directories and Files
+### 2.2 Crear Directorios y Archivos Esenciales
 
-Let's create the basic structure for our library:
+Vamos a crear la estructura básica para nuestra biblioteca:
 
 ```bash
-# Create necessary directories
+# Crear directorios necesarios
 mkdir src/lib types
 
-# Create essential files
+# Crear archivos esenciales
 touch src/lib/main.ts src/style.css types/base.json types/react-library.json
 ```
 
-This structure is important because:
-- `src/lib/`: Will contain our library's entry point and utilities
-- `types/`: Contains TypeScript configuration files
-- `src/style.css`: Will hold our global styles and Tailwind imports
+Esta estructura es importante porque:
+- `src/lib/`: Contendrá el punto de entrada de nuestra biblioteca y utilidades
+- `types/`: Contiene archivos de configuración de TypeScript
+- `src/style.css`: Contendrá nuestros estilos globales e importaciones de Tailwind
 
-### 2.3 Set Up TypeScript Configuration
+### 2.3 Configurar TypeScript
 
-We'll create two TypeScript configuration files:
+Crearemos dos archivos de configuración de TypeScript:
 
-1. First, create `types/base.json` for our base TypeScript settings:
+1. Primero, crea `types/base.json` para nuestra configuración base de TypeScript:
 
 ```json
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "composite": false,
-    "declaration": true,        // Generates .d.ts files
-    "declarationMap": true,     // Generates sourcemaps for .d.ts files
-    "esModuleInterop": true,    // Enables cleaner imports
+    "declaration": true,        // Genera archivos .d.ts
+    "declarationMap": true,     // Genera sourcemaps para archivos .d.ts
+    "esModuleInterop": true,    // Habilita importaciones más limpias
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
     "inlineSources": false,
     "isolatedModules": true,
-    "module": "ESNext",         // Uses modern JavaScript modules
+    "module": "ESNext",         // Usa módulos modernos de JavaScript
     "moduleResolution": "Bundler",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,            // Enables strict type checking
+    "strict": true,            // Habilita verificación estricta de tipos
     "noEmit": true,
     "strictNullChecks": true
   },
@@ -138,34 +138,34 @@ We'll create two TypeScript configuration files:
 }
 ```
 
-2. Then, create `types/react-library.json` for React-specific settings:
+2. Luego, crea `types/react-library.json` para configuraciones específicas de React:
 
 ```json
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./base.json",
   "compilerOptions": {
-    "lib": ["ES2015"],         // Modern JavaScript features
-    "module": "ESNext",        // Modern module system
-    "target": "ES6",           // Modern JavaScript target
-    "jsx": "react-jsx",        // React JSX support
+    "lib": ["ES2015"],         // Características modernas de JavaScript
+    "module": "ESNext",        // Sistema de módulos moderno
+    "target": "ES6",           // Objetivo de JavaScript moderno
+    "jsx": "react-jsx",        // Soporte para JSX de React
     "noEmit": true
   }
 }
 ```
 
-3. Finally, update the root `tsconfig.json`:
+3. Finalmente, actualiza el `tsconfig.json`:
 
 ```json
 {
   "extends": "./types/react-library.json",
   "compilerOptions": {
-    "lib": ["dom", "ES2015"],  // Add DOM types for browser environment
-    "sourceMap": true,         // Generate source maps
-    "types": ["jest", "node"], // Include type definitions
-    "baseUrl": ".",           // Base directory for imports
+    "lib": ["dom", "ES2015"],  // Añade tipos DOM para entorno navegador
+    "sourceMap": true,         // Genera source maps
+    "types": ["jest", "node"], // Incluye definiciones de tipos
+    "baseUrl": ".",           // Directorio base para importaciones
     "paths": {
-      "@/*": ["./src/*"]      // Enable @ imports
+      "@/*": ["./src/*"]      // Habilita importaciones con @
     }
   },
   "include": ["src", "lib"],
@@ -173,24 +173,24 @@ We'll create two TypeScript configuration files:
 }
 ```
 
-## Step 3: Configure Vite
+## Paso 3: Configurar Vite
 
-### 3.1 Install Vite Plugins
+### 3.1 Instalar Plugins de Vite
 
-We need some additional Vite plugins to handle TypeScript declarations and CSS:
+Necesitamos algunos plugins adicionales de Vite para manejar declaraciones de TypeScript y CSS:
 
 ```bash
 pnpm i -D vite-plugin-dts @vitejs/plugin-react vite-plugin-css-injected-by-js
 ```
 
-These plugins are:
-- `vite-plugin-dts`: Generates TypeScript declaration files
-- `@vitejs/plugin-react`: React support for Vite
-- `vite-plugin-css-injected-by-js`: Injects CSS into JavaScript
+Estos plugins son:
+- `vite-plugin-dts`: Genera archivos de declaración de TypeScript
+- `@vitejs/plugin-react`: Soporte de React para Vite
+- `vite-plugin-css-injected-by-js`: Inyecta CSS en JavaScript
 
-### 3.2 Configure Vite
+### 3.2 Configurar Vite
 
-Create or update `vite.config.ts`:
+Crea o actualiza `vite.config.ts`:
 
 ```typescript
 import tailwindcss from '@tailwindcss/vite';
@@ -205,18 +205,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
-    dts({ include: ['src/lib'] }),  // Generate .d.ts files
-    react(),                         // Enable React
-    tailwindcss(),                   // Enable Tailwind
-    cssInjectedByJsPlugin()         // Inject CSS into JS
+    dts({ include: ['src/lib'] }),  // Genera archivos .d.ts
+    react(),                         // Habilita React
+    tailwindcss(),                   // Habilita Tailwind
+    cssInjectedByJsPlugin()         // Inyecta CSS en JS
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/lib/main.ts'),  // Library entry point
-      formats: ['es', 'cjs']                         // Output formats
+      entry: resolve(__dirname, 'src/lib/main.ts'),  // Punto de entrada de la biblioteca
+      formats: ['es', 'cjs']                         // Formatos de salida
     },
     rollupOptions: {
-      // External dependencies that shouldn't be bundled
+      // Dependencias externas que no deben incluirse en el bundle
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         assetFileNames: 'assets/[name].[extname]',
@@ -227,29 +227,29 @@ export default defineConfig({
 });
 ```
 
-This configuration:
-- Sets up our library entry point
-- Configures output formats (ESM and CommonJS)
-- Excludes React from the bundle
-- Handles asset and file naming
+Esta configuración:
+- Establece nuestro punto de entrada de la biblioteca
+- Configura formatos de salida (ESM y CommonJS)
+- Excluye React del bundle
+- Maneja el nombramiento de archivos y assets
 
-## Step 4: Add Shadcn/ui Support
+## Paso 4: Añadir Soporte para Shadcn/ui
 
-### 4.1 Install Required Dependencies
+### 4.1 Instalar Dependencias Requeridas
 
 ```bash
 pnpm add class-variance-authority clsx tailwind-merge lucide-react tw-animate-css
 ```
 
-These packages are:
-- `class-variance-authority`: For managing component variants
-- `clsx` and `tailwind-merge`: For class name management
-- `lucide-react`: Icon library
-- `tw-animate-css`: Animation utilities
+Estos paquetes son:
+- `class-variance-authority`: Para gestionar variantes de componentes
+- `clsx` y `tailwind-merge`: Para gestión de nombres de clases
+- `lucide-react`: Biblioteca de iconos
+- `tw-animate-css`: Utilidades de animación
 
-### 4.2 Set Up Styles
+### 4.2 Configurar Estilos
 
-Update `src/style.css` with shadcn/ui's base styles:
+Actualiza `src/style.css` con los estilos base de shadcn/ui:
 
 ```css
 @import "tailwindcss";
@@ -382,23 +382,23 @@ Update `src/style.css` with shadcn/ui's base styles:
 }
 ```
 
-### 4.3 Add Utility Functions
+### 4.3 Añadir Funciones de Utilidad
 
-Create `src/lib/utils.ts` for our utility functions:
+Crea `src/lib/utils.ts` para nuestras funciones de utilidad:
 
 ```typescript
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-// Utility function to merge Tailwind classes
+// Función de utilidad para combinar clases de Tailwind
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 ```
 
-### 4.4 Configure Shadcn/ui
+### 4.4 Configurar Shadcn/ui
 
-Create `components.json` in the root directory:
+Crea `components.json` en el directorio raíz:
 
 ```json
 {
@@ -424,26 +424,26 @@ Create `components.json` in the root directory:
 }
 ```
 
-## Step 5: Add Your First Component
+## Paso 5: Añadir tu Primer Componente
 
-### 5.1 Add a Button Component
+### 5.1 Añadir un Componente Botón
 
 ```bash
-# Add the button component using shadcn CLI
+# Añadir el componente botón usando la CLI de shadcn
 pnpm dlx shadcn@latest add button
 ```
 
-This will create a button component in `src/components/button.tsx`. Let's move it to a better location:
+Esto creará un componente botón en `src/components/button.tsx`. Vamos a moverlo a una mejor ubicación:
 
 ```bash
-# Create a dedicated button directory
+# Crear un directorio dedicado para el botón
 mkdir -p src/button
 mv src/components/button.tsx src/button/index.tsx
 ```
 
-### 5.2 Export the Component
+### 5.2 Exportar el Componente
 
-Update `src/lib/main.ts` to export our button:
+Actualiza `src/lib/main.ts` para exportar nuestro botón:
 
 ```typescript
 //src/lib/main.ts
@@ -451,9 +451,9 @@ import '../style.css';
 export { Button } from '../button';
 ```
 
-## Step 6: Configure Package.json
+## Paso 6: Configurar Package.json
 
-Update your `package.json` to include necessary fields for publishing:
+Actualiza tu `package.json` para incluir los campos necesarios para publicar:
 
 ```json
 {
@@ -464,9 +464,9 @@ Update your `package.json` to include necessary fields for publishing:
     "dist/**",
     "dist"
   ],
-  "main": "dist/main.es.js",        // CommonJS entry point
-  "module": "dist/main.es.js",      // ESM entry point
-  "types": "dist/lib/main.d.ts",    // TypeScript declarations
+  "main": "dist/main.es.js",        // Punto de entrada CommonJS
+  "module": "dist/main.es.js",      // Punto de entrada ESM
+  "types": "dist/lib/main.d.ts",    // Declaraciones de TypeScript
   "scripts": {
     "build": "vite build",
     "dev": "vite --host 0.0.0.0 --port 3003 --clearScreen false",
@@ -476,15 +476,13 @@ Update your `package.json` to include necessary fields for publishing:
   },
   "jest": {
     "preset": "@backlogg/jest-presets/browser"
-  },
-  ...
+  }
 }
 ```
-Everything is ready, you should be able to compile your library.
 
-## Step 7: Build and Test
+## Paso 7: Construir y Probar
 
-### 7.1 Build the Library
+### 7.1 Construir la Biblioteca
 
 ```bash
 ❯ pnpm build
@@ -503,14 +501,14 @@ dist/main.cjs.js  44.05 kB │ gzip: 13.07 kB
 ✓ built in 750ms
 ```
 
-This will create:
-- `dist/main.es.js`: ESM version
-- `dist/main.cjs.js`: CommonJS version
-- `dist/lib/main.d.ts`: TypeScript declarations
+Esto creará:
+- `dist/main.es.js`: Versión ESM
+- `dist/main.cjs.js`: Versión CommonJS
+- `dist/lib/main.d.ts`: Declaraciones de TypeScript
 
-### 7.2 Using the Library
+### 7.2 Usar la Biblioteca
 
-You can now use your library in other projects:
+Ahora puedes usar tu biblioteca en otros proyectos:
 
 ```jsx
 import { Button } from '@your-package-name/ui';
@@ -527,30 +525,31 @@ function App() {
   );
 }
 ```
-![Imported button](/05/button.png)
 
-## Next Steps
+![Botón importado](/05/button.png)
 
-Now that you have a basic component library set up, you can:
-1. Add more components using `shadcn/ui`
-2. Write tests for your components
-3. Add documentation
-4. Publish to npm
-5. Add more features like:
-   - Storybook for component documentation
-   - More complex components
-   - Custom themes
-   - Additional utilities
+## Próximos Pasos
 
-## Common Issues and Solutions
+Ahora que tienes una biblioteca de componentes básica configurada, puedes:
+1. Añadir más componentes usando `shadcn/ui`
+2. Escribir pruebas para tus componentes
+3. Añadir documentación
+4. Publicar en npm
+5. Añadir más características como:
+   - Storybook para documentación de componentes
+   - Componentes más complejos
+   - Temas personalizados
+   - Utilidades adicionales
 
-1. **CSS not loading**: Make sure you're importing the CSS file in your consuming project
-2. **TypeScript errors**: Check that all dependencies are properly installed and types are generated
-3. **Build errors**: Verify that all external dependencies are listed in `vite.config.ts`
+## Problemas Comunes y Soluciones
 
-## Resources
+1. **CSS no se carga**: Asegúrate de importar el archivo CSS en tu proyecto consumidor
+2. **Errores de TypeScript**: Verifica que todas las dependencias estén correctamente instaladas y los tipos generados
+3. **Errores de construcción**: Verifica que todas las dependencias externas estén listadas en `vite.config.ts`
 
-- [Vite Documentation](https://vitejs.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-- [Shadcn/ui Documentation](https://ui.shadcn.com/)
-- [TypeScript Documentation](https://www.typescriptlang.org/)
+## Recursos
+
+- [Documentación de Vite](https://vitejs.dev/)
+- [Documentación de Tailwind CSS](https://tailwindcss.com/)
+- [Documentación de Shadcn/ui](https://ui.shadcn.com/)
+- [Documentación de TypeScript](https://www.typescriptlang.org/)
