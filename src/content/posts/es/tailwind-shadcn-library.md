@@ -12,6 +12,7 @@ image:
 tags: ['typescript', 'react',]
 layout: ../../../layouts/PostLayout.astro
 draft: false
+verified: false
 ---
 
 

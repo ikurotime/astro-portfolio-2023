@@ -36,6 +36,19 @@ const { language, frontmatter } = Astro.props
           {new Date(frontmatter.pubDate).toLocaleDateString()}
         </span>
         <Prose frontmatter={frontmatter}>
+          {
+            frontmatter.verified ? null : frontmatter.language === 'es' ? (
+              <div class='text-orange-400 p-4 rounded-md bg-orange-900/50 m-4'>
+                🛠️ Kuro está trabajando en este post. Todo deberia de funcionar
+                como está indicado, pero puede que haya algunos errores.
+              </div>
+            ) : (
+              <div class='text-orange-400 p-4 rounded-md bg-orange-900/50 m-4'>
+                🛠️ Kuro is working on this post. Everything should work as
+                indicated, but there may be some errors.
+              </div>
+            )
+          }
           <slot />
         </Prose>
       </div>
