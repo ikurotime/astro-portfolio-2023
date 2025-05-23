@@ -1,5 +1,50 @@
 ---
 const { title, description, tags } = Astro.props
+
+function getTagIcon(tag: string): string {
+  switch (tag.toLowerCase()) {
+    case 'react':
+    case 'create-react-app':
+      return '/icons/react.svg'
+    case 'vue':
+      return '/icons/vue.svg'
+    case 'angular':
+      return '/icons/angular.svg'
+    case 'javascript':
+    case 'js':
+      return '/icons/javascript.svg'
+    case 'typescript':
+    case 'ts':
+      return '/icons/typescript.svg'
+    case 'python':
+      return '/icons/python.svg'
+    case 'node':
+    case 'nodejs':
+      return '/icons/nodejs.svg'
+    case 'css':
+      return '/icons/css.svg'
+    case 'html':
+      return '/icons/html.svg'
+    case 'astro':
+      return '/icons/astro.svg'
+    case 'tailwind':
+      return '/icons/tailwind.svg'
+    case 'docker':
+    case 'vps':
+      return '/icons/docker.svg'
+    case 'github':
+    case 'github actions':
+    case 'ci/cd':
+      return '/icons/github.svg'
+    case 'gitlab':
+      return '/icons/gitlab.svg'
+    case 'bitbucket':
+      return '/icons/bitbucket.svg'
+    case 'jira':
+    default:
+      return '/icons/default.svg'
+  }
+}
 ---
 
 <div
@@ -7,4 +52,14 @@ const { title, description, tags } = Astro.props
 >
   <span class='text-[#EEEEEC] text-md'>{title}</span>
   <span class='text-[#D1D5DB] text-sm'>{description}</span>
+  <div class='flex gap-2'>
+    {
+      tags.map((tag: string) => (
+        <span class='text-[#D1D5DB] text-xs bg-[#101010] rounded-sm px-2 py-1 flex items-center gap-1'>
+          <img src={getTagIcon(tag)} alt={tag} class='w-3 h-3' />
+          <span>{tag}</span>
+        </span>
+      ))
+    }
+  </div>
 </div>

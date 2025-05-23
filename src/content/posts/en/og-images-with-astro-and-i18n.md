@@ -9,7 +9,7 @@ keywords: ['astro', 'og-images', 'i18n', 'astro i18n', 'astro og images', 'astro
 image:
   url: 'https://docs.astro.build/assets/full-logo-light.png'
   alt: 'El logotipo completo de Astro.'
-tags: ['astro', 'og-images', 'i18n']
+tags: ['astro' ]
 draft: false
 layout: ../../../layouts/PostLayout.astro
 ---
