@@ -2,6 +2,8 @@
 import Prose from './Prose.astro'
 import '@fontsource-variable/inter'
 import Head from '../components/Head.astro'
+import Footer from './Footer.astro'
+import Navbar from './Navbar.astro'
 const { language, frontmatter } = Astro.props
 ---
 
@@ -20,9 +22,10 @@ const { language, frontmatter } = Astro.props
       keywords={frontmatter.keywords}
     />
   </head>
-  <body class='flex min-h-screen bg-[#171717] w-full'>
+  <body class='flex flex-col min-h-screen py-12 bg-[#171717] w-full'>
+    <Navbar />
     <div class='flex flex-row w-full'>
-      <div class='flex flex-col m-auto gap-2 sm:p-8 px-4 md:p-14 max-w-4xl'>
+      <div class='flex flex-col m-auto gap-2 max-sm:px-4 max-w-4xl'>
         <a class='text-[#D1D5DB] font-bold text-xl mt-6' href='/'>
           &lt;- Blog
         </a>
@@ -53,6 +56,7 @@ const { language, frontmatter } = Astro.props
         </Prose>
       </div>
     </div>
+    <Footer />
 
     <style is:global>
       body {
