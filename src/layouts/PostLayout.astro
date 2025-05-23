@@ -60,6 +60,8 @@ const { language, frontmatter } = Astro.props
       }
       /* Fix <pre> tag gap when code is next element. */
       pre:has(> code) {
+        background-color: transparent !important;
+        border: 1px solid #232323 !important;
         white-space: pre-wrap;
         padding: 1em;
       }
