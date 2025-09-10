@@ -26,8 +26,8 @@ const { language, frontmatter } = Astro.props
   <body class='flex flex-col min-h-screen py-12 bg-[#171717] w-full gap-8'>
     <ProgressBar />
     <Navbar />
-    <div class='flex flex-col w-full'>
-      <div class='flex flex-col max-w-[960px] mx-auto py-20 gap-4 max-sm:px-4'>
+    <div class='flex flex-col w-full max-w-[960px] m-auto'>
+      <div class='flex flex-col py-20 gap-4 max-sm:px-4'>
         <h1 class='text-2xl text-[#EEEEEC] md:text-4xl font-bold mb-2'>
           {frontmatter.title}
         </h1>
@@ -60,37 +60,39 @@ const { language, frontmatter } = Astro.props
           }
           <slot />
         </Prose>
-        <script
-          src='https://giscus.app/client.js'
-          data-repo='ikurotime/blog-comments'
-          data-repo-id='R_kgDOPtEulQ'
-          data-category='Announcements'
-          data-category-id='DIC_kwDOPtEulc4CvOdX'
-          data-mapping='pathname'
-          data-strict='0'
-          data-reactions-enabled='1'
-          data-emit-metadata='0'
-          data-input-position='top'
-          data-theme='noborder_dark'
-          data-lang='en'
-          data-loading='lazy'
-          crossorigin='anonymous'
-          async></script>
       </div>
     </div>
-    <Footer />
+    <div class='flex flex-col w-full max-w-[960px] m-auto pb-12'>
+      <script
+        src='https://giscus.app/client.js'
+        data-repo='ikurotime/blog-comments'
+        data-repo-id='R_kgDOPtEulQ'
+        data-category='Announcements'
+        data-category-id='DIC_kwDOPtEulc4CvOdX'
+        data-mapping='pathname'
+        data-strict='0'
+        data-reactions-enabled='1'
+        data-emit-metadata='0'
+        data-input-position='top'
+        data-theme='noborder_dark'
+        data-lang='en'
+        data-loading='lazy'
+        crossorigin='anonymous'
+        async></script>
+      <Footer />
 
-    <style is:global>
-      body {
-        font-family: 'Inter Variable', sans-serif;
-      }
-      /* Fix <pre> tag gap when code is next element. */
-      pre:has(> code) {
-        background-color: transparent !important;
-        border: 1px solid #232323 !important;
-        white-space: pre-wrap;
-        padding: 1em;
-      }
-    </style>
+      <style is:global>
+        body {
+          font-family: 'Inter Variable', sans-serif;
+        }
+        /* Fix <pre> tag gap when code is next element. */
+        pre:has(> code) {
+          background-color: transparent !important;
+          border: 1px solid #232323 !important;
+          white-space: pre-wrap;
+          padding: 1em;
+        }
+      </style>
+    </div>
   </body>
 </html>
