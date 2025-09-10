@@ -40,7 +40,7 @@ const { language, frontmatter } = Astro.props
         </span>
         <Prose frontmatter={frontmatter}>
           {
-            frontmatter.verified === false ? (
+            frontmatter.wip ? (
               frontmatter.language === 'es' ? (
                 <div class='text-orange-400 p-4 rounded-md bg-orange-900/50 m-4'>
                   🛠️ Kuro está trabajando en este post. Todo deberia de

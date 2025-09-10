@@ -12,7 +12,6 @@ image:
 tags: ['typescript', 'react',]
 layout: ../../../layouts/PostLayout.astro
 draft: false
-verified: false
 ---
 
 
@@ -37,6 +36,8 @@ Before we begin, make sure you have:
 - Basic knowledge of React and TypeScript
 - Familiarity with npm/pnpm package management
 - A code editor (VS Code recommended)
+
+> Note that shacdn depends on radix so there are some classes that you'l need to override in order to fix animations
 
 ## Step 1: Project Setup
 

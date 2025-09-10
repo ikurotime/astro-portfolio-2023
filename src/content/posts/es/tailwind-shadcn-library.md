@@ -38,6 +38,9 @@ Antes de comenzar, asegúrate de tener:
 - Familiaridad con la gestión de paquetes npm/pnpm
 - Un editor de código (VS Code recomendado)
 
+
+> Shadcn depende de radix, por lo que hay algunas clases que necesitas sobreescribir para arreglar las animaciones
+
 ## Paso 1: Configuración del Proyecto
 
 ### 1.1 Crear un Nuevo Proyecto
