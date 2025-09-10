@@ -1,6 +1,6 @@
 ---
 title: 'The biggest issue in React'
-pubDate: 2025-01-15
+pubDate: 2025-09-10
 description: 'Half of the useEffect hooks you see in React are unnecessary. The other half are poorly written. And the remaining 1%... that one actually makes sense.'
 author: 'Kuro'
 language: en

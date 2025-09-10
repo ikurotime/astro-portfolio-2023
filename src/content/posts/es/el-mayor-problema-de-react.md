@@ -1,6 +1,6 @@
 ---
 title: 'El mayor problema en React'
-pubDate: 2025-01-15
+pubDate: 2025-09-10
 description: 'La mitad de los useEffect que ves en React son innecesarios. La otra mitad están mal escritos. Y el 1% que queda... ese sí que tiene sentido.'
 author: 'Kuro'
 language: es
