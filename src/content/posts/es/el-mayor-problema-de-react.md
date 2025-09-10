@@ -233,4 +233,4 @@ const Button = ({ onClick }) =>
 
 ## El punto es...
 
-> "Antes de recurrir a useEffect, piensa: ¿Es esto fetching de datos? Usa TanStack Query. ¿Es esto un cálculo? Usa useMemo. ¿Es esto manipulación del DOM o integración con API externa? Solo entonces considera usar useEffect."
+> Antes de recurrir a useEffect, piensa: ¿Es esto fetching de datos? Usa TanStack Query. ¿Es esto un cálculo? Usa useMemo. ¿Es esto manipulación del DOM o integración con API externa? Solo entonces considera usar useEffect.
