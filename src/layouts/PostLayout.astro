@@ -4,6 +4,7 @@ import '@fontsource-variable/inter'
 import Head from '../components/Head.astro'
 import Footer from './Footer.astro'
 import Navbar from './Navbar.astro'
+import ProgressBar from '../components/ProgressBar.astro'
 const { language, frontmatter } = Astro.props
 ---
 
@@ -23,9 +24,10 @@ const { language, frontmatter } = Astro.props
     />
   </head>
   <body class='flex flex-col min-h-screen py-12 bg-[#171717] w-full gap-8'>
+    <ProgressBar />
     <Navbar />
     <div class='flex flex-col w-full'>
-      <div class='flex flex-col max-w-[960px] mx-auto py-20 gap-4'>
+      <div class='flex flex-col max-w-[960px] mx-auto py-20 gap-4 max-sm:px-4'>
         <h1 class='text-2xl text-[#EEEEEC] md:text-4xl font-bold mb-2'>
           {frontmatter.title}
         </h1>

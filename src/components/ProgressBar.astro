@@ -1,0 +1,36 @@
+<style>
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: transparent;
+    z-index: 9999;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #277558, #26a97a);
+    transition: width 0.1s linear;
+  }
+</style>
+
+<div class='progress-container'>
+  <div id='progress-bar' class='progress-bar'></div>
+</div>
+
+<script>
+  const progressBar = document.getElementById('progress-bar') as HTMLDivElement
+
+  const updateProgress = () => {
+    const scrollTop = window.scrollY
+    const docHeight = document.body.scrollHeight - window.innerHeight
+    const progress = (scrollTop / docHeight) * 100
+    progressBar.style.width = progress + '%'
+  }
+
+  window.addEventListener('scroll', updateProgress)
+  updateProgress()
+</script>
