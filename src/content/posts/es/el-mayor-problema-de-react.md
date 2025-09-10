@@ -14,7 +14,7 @@ layout: ../../../layouts/PostLayout.astro
 draft: false
 ---
 
-> La mitad de los useEffect en proyectos de React son redundantes. La otra mitad está implementada incorrectamente. Solo algunos de ellos tienen sentido.
+> La mitad de los useEffect en proyectos de React son redundantes. La otra mitad son implementados incorrectamente. Solo algunos de ellos tienen sentido.
 
 El hook `useEffect` se ha convertido en la solución predeterminada cuando los desarrolladores no encuentran un enfoque directo en React para resolver sus problemas. Se usa como una solución universal para cualquier problema a la hora de gestionar el estado.
 
@@ -192,7 +192,7 @@ const UserProfile = ({ userId }) => {
 }
 ```
 
-**Escenario 2 (computar estado derivado):** Utiliza `useMemo`. Aquí tienes un ejemplo práctico:
+**Escenario 2 (derivar estado):** Utiliza `useMemo`. Aquí tienes un ejemplo práctico:
 
 ```jsx
 export default function Cart({ items }) {
