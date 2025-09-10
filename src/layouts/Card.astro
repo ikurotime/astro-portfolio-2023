@@ -4,6 +4,8 @@ const { title, description, tags } = Astro.props
 function getTagIcon(tag: string): string {
   switch (tag.toLowerCase()) {
     case 'react':
+    case 'hooks':
+    case 'performance':
     case 'create-react-app':
       return '/icons/react.svg'
     case 'vue':
